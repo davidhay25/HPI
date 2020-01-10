@@ -1,0 +1,897 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "nzRegistry",
+  "meta": {
+    "versionId": "64",
+    "lastUpdated": "2019-09-30T02:26:44.221+00:00"
+  },
+  "extension": [
+    {
+      "url": "http://clinfhir.com/fhir/StructureDefinition/cfAuthor",
+      "valueBoolean": true
+    }
+  ],
+  "url": "http://standards.digital.health.nz/fhir/nzRegistry",
+  "name": "New Zealand Registry API",
+  "status": "draft",
+  "description": "A FHIR APi for the NHI and HPI systems",
+  "packageId": "NZRegistry",
+  "fhirVersion": [
+    "4.0.0"
+  ],
+      "pageDEP": {
+    
+        "title": "Documentation",
+        "page": [
+            {
+                "nameUrl": "Binary/cf-Home1564526086491",
+                "title": "Home",
+                "page": [
+                    {
+                        "nameUrl": "Binary/cf-Organization1564520207166",
+                        "title": "Organization"
+                    },
+                    {
+                        "nameUrl": "Binary/cf-Security1564515057689",
+                        "title": "Security"
+                    },
+                    {
+                        "nameUrl": "Binary/cf-Must-support1564521082739",
+                        "title": "Must support"
+                    }
+                ]
+            },
+            {
+                "nameUrl": "Binary/cf-Usage-Notes1564514010101",
+                "title": "Usage Notes",
+                "page": [{
+                    "nameUrl": "Binary/cf-Patient-Update1564514212603",
+                    "title": "Patient Update"
+                }]
+            },
+            {
+                "nameUrl": "Binary/cf-Design-Notes1564514800098",
+                "title": "Design Notes",
+                "page": [
+                    {
+                        "nameUrl": "Binary/cf-Patient1564520872247",
+                        "title": "Patient",
+                        "page": [
+                            {
+                                "nameUrl": "Binary/cf-Summary1564520900667",
+                                "title": "Summary",
+                                "page": [
+                                    {
+                                        "nameUrl": "Binary/cf-NHI1564523228015",
+                                        "title": "NHI"
+                                    },
+                                    {
+                                        "nameUrl": "Binary/cf-Address1564528794392",
+                                        "title": "Address"
+                                    }
+                                ]
+                            },
+                            {
+                                "nameUrl": "Binary/cf-Search1564528336369",
+                                "title": "Search"
+                            }
+                        ]
+                    },
+                    {
+                        "nameUrl": "Binary/cf-Practitioner1564520883172",
+                        "title": "Practitioner",
+                        "page": [{
+                            "nameUrl": "Binary/cf-Qualificat1564526675887",
+                            "title": "Qualifications"
+                        }]
+                    }
+                ]
+            }
+        ]
+    },
+    
+  "definition": {
+    "page" : {
+        "nameUrl":"front.md",
+        "title" : "Introduction",
+        "generation":"markdown",
+        "page" : [
+         {
+                "nameUrl":"usage.md",
+                "title" : "Usage notes",
+                "generation":"markdown"
+            },
+            {
+                "nameUrl":"resources.md",
+                "title" : "General notes on resources",
+                "generation":"markdown"
+            },
+            {
+                "nameUrl":"terminology.md",
+                "title" : "Terminology",
+                "generation":"markdown"
+            },
+            {
+                "nameUrl":"identifiers.md",
+                "title" : "Identifiers",
+                "generation":"markdown"
+            }
+        ]
+    },
+    "resource": [
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/nzmc"
+        },
+        "name": "Medical Council Naming system",
+        "description": "The NamingSystem that describes the identifiers from the Medical council"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/nznc"
+        },
+        "name": "Nursing Council Naming system",
+        "description": "The NamingSystem that describes the identifiers from the Nursing council"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/nzmwc"
+        },
+        "name": "Midwifery Council Naming system",
+        "description": "The NamingSystem that describes the identifiers from the Midwifery council"
+      },
+      {
+        "reference": {
+          "reference": "Patient/patient2"
+        },
+        "name": "Complete example of NHI Patient",
+        "exampleCanonical": "http://home.clinfhir.com:8054/baseR4/StructureDefinition/NzNHIPatient"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/drmulti"
+        },
+        "name": "Dr Fred Multi",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/practitioner3"
+        },
+        "name": "Practitioner with a degree and registration",
+        "description": "An example with 2 qualification elements - a nursing degree and a registration as a Nurse Practitioner",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/practitionerX"
+        },
+        "name": "Supervised Pharmacist",
+        "description": "A Pharmacist with a supervision condition",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Organization/organization1"
+        },
+        "name": "Good Health Medical Centre",
+        "description": "An organization with an alias",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Location/location1"
+        },
+        "name": "East End surgery",
+        "description": "A location (also known as a facility) with an alias",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/practitionerrole1"
+        },
+        "name": "Practitioner role created by Dr multi",
+        "description": "An example with 2 qualification elements - a nursing degree and a registration as a Nurse Practitioner",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/practitionerY"
+        },
+        "name": "Supervised psychologist",
+        "description": "A clinical Psychologist under supervised practice",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Organization/organization1"
+        },
+        "name": "Complete example of HPI Organization",
+        "exampleBoolean": "false"
+      },
+      {
+        "reference": {
+          "reference": "Location/location1"
+        },
+        "name": "Complete example of HPI Location",
+        "exampleBoolean": "false"
+      },
+      
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "profile"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/nhipatient"
+        },
+        "name": "NHI Patient profile",
+        "description": "The profile on Patient for the NHI interactions"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "logical"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "HPIPractitioner"
+          },
+          {
+            "url": "http://clinfhir.com/StructureDefinition/docKey",
+            "valueString": "practitioner.md"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/HpiPractitioner"
+        },
+        "name": "HPI Practitioner model",
+        "description": "The information model that will describe the profile on Practitioner for HPI interactions"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "logical"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "H"
+          },
+          {
+            "url": "http://clinfhir.com/StructureDefinition/docKey",
+            "valueString": "practitionerRole.md"
+          }
+          
+        ],
+        "reference": {
+          "reference": "StructureDefinition/HpiPractitionerRole"
+        },
+        "name": "HPI PractitionerRole model",
+        "description": "The information model that will describe the profile on PractitionerRole for HPI interactions"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "logical"
+          },
+          {
+            "url": "http://clinfhir.com/StructureDefinition/docKey",
+            "valueString": "location.md"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/HpiLocation"
+        },
+        "name": "HPI Location model",
+        "description": "The information model that will describe the profile on Location for HPI interactions"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "logical"
+          },
+          {
+            "url": "http://clinfhir.com/StructureDefinition/docKey",
+            "valueString": "organization.md"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/HpiOrganization"
+        },
+        "name": "HPI Organization model",
+        "description": "The information model that will describe the profile on Organization for HPI interactions"
+      },
+     
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "logical"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/HpiEndpoint"
+        },
+        "name": "HPI Endpoint model",
+        "description": "The information model that will describe the profile on Endpoint for HPI interactions"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "logicalHIDE"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/HpiHealthcareService"
+        },
+        "name": "HPI HealthcareService model",
+        "description": "The information model that will describe the profile on HealthcareService for HPI interactions"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "logicalHIDE"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/HpiCareTeam"
+        },
+        "name": "HPI CareTeam model",
+        "description": "The information model that will describe the profile on CareTeam for HPI interactions"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "codesystem"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/CodeSystem/addressnotvalidated"
+          }
+        ],
+        "reference": {
+          "reference": "CodeSystem/addressnotvalidated"
+        },
+        "name": "addressnotvalidated",
+        "description": "addressnotvalidated"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "codesystem"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/CodeSystem/dodinfosource"
+          }
+        ],
+        "reference": {
+          "reference": "CodeSystem/dodinfosource"
+        },
+        "name": "dodinfosource",
+        "description": "dodinfosource"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "codesystem"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/CodeSystem/nzdomcode"
+          }
+        ],
+        "reference": {
+          "reference": "CodeSystem/nzdomcode"
+        },
+        "name": "nzdomcode",
+        "description": "nzdomcode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "codesystem"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/CodeSystem/nzinfosource"
+          }
+        ],
+        "reference": {
+          "reference": "CodeSystem/nzinfosource"
+        },
+        "name": "New Zealand Information source for DOB & DOD",
+        "description": "nzinfosource"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "codesystem"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/CodeSystem/nziwi"
+          }
+        ],
+        "reference": {
+          "reference": "CodeSystem/nziwi"
+        },
+        "name": "nziwi",
+        "description": "nziwi"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "codesystem"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/CodeSystem/nzmaoridescent"
+          }
+        ],
+        "reference": {
+          "reference": "CodeSystem/nzmaoridescent"
+        },
+        "name": "nzmaoridescent",
+        "description": "nzmaoridescent"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "valueset"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/ValueSet/addressnotvalidated"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/addressnotvalidated"
+        },
+        "name": "addressnotvalidated",
+        "description": "addressnotvalidated"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "valueset"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/ValueSet/dodinfosource"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/dodinfosource"
+        },
+        "name": "dodinfosource",
+        "description": "dodinfosource"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "valueset"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/ValueSet/nzdomcode"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/nzdomcode"
+        },
+        "name": "nzdomcode",
+        "description": "nzdomcode"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "valueset"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/ValueSet/nzinfosource"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/nzinfosource"
+        },
+        "name": "Information Source",
+        "description": "nzinfosource"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "valueset"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/ValueSet/nziwi"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/nziwi"
+        },
+        "name": "nziwi",
+        "description": "nziwi"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "valueset"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://standards.digital.health.nz/fhir/ValueSet/nzmaoridescent"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/nzmaoridescent"
+        },
+        "name": "nzmaoridescent",
+        "description": "nzmaoridescent"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/informationsource"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-informationsource"
+        },
+        "name": "Informationsource",
+        "description": "cf-informationsource"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/originalValue"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-originalValue"
+        },
+        "name": "OriginalValue",
+        "description": "cf-originalValue"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/nzBuildingName"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-nzBuildingName"
+        },
+        "name": "NzBuildingName",
+        "description": "cf-nzBuildingName"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/patient-addressCoding"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-patient-addressCoding"
+        },
+        "name": "Patient-addressCoding",
+        "description": "cf-patient-addressCoding"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/notValidatedReason"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-notValidatedReason"
+        },
+        "name": "NotValidatedReason",
+        "description": "cf-notValidatedReason"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-nzethnicity"
+        },
+        "name": "Nzethnicity",
+        "description": "cf-nzethnicity"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/patient-nzcitizenship"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-patient-nzcitizenship"
+        },
+        "name": "Patient-nzcitizenship",
+        "description": "cf-patient-nzcitizenship"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/nzDhb"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-nzDhb"
+        },
+        "name": "NzDhb",
+        "description": "cf-nzDhb"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/patient-iwi"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-patient-iwi"
+        },
+        "name": "Patient-iwi",
+        "description": "cf-patient-iwi"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/address-isPrimary"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-address-isPrimary"
+        },
+        "name": "Address-isPrimary",
+        "description": "cf-address-isPrimary"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/buildingName"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-buildingName"
+        },
+        "name": "BuildingName",
+        "description": "cf-buildingName"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/ethnicity"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-ethnicity"
+        },
+        "name": "Ethnicity",
+        "description": "cf-ethnicity"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/patient-birthPlace"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-patient-birthPlace"
+        },
+        "name": "PatientbirthPlace",
+        "description": "cf-patient-birthPlace"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/dhb"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-dhb"
+        },
+        "name": "Dhb",
+        "description": "cf-dhb"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/nziwi"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-nziwi"
+        },
+        "name": "Nziwi",
+        "description": "cf-nziwi"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/geolocation"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-geolocation"
+        },
+        "name": "Geolocation",
+        "description": "cf-geolocation"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/patient-maoriDescent"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-patient-maoriDescent"
+        },
+        "name": "PatientmaoriDescent",
+        "description": "cf-patient-maoriDescent"
+      },
+      {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "extension"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
+            "valueUrl": "http://hl7.org.nz/fhir/StructureDefinition/patient-addressDerived"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/cf-patient-addressDerived"
+        },
+        "name": "PatientaddressDerived",
+        "description": "cf-patient-addressDerived"
+      },
+       {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "logical"
+          },
+          {
+            "url": "http://clinfhir.com/StructureDefinition/docKey",
+            "valueString": "patient.md"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/NzNHIPatient"
+        },
+        "name": "NHI Patient model",
+        "description": "The information model that will describe the profile on Patient for the NHI interactions"
+      }
+    ]
+  }
+}
