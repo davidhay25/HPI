@@ -7,6 +7,8 @@ Description:    "The practitioner exposed by the HPI."
 //* ^text.status = #additional
 //* ^text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">text</div>"
 
+
+
 * ^purpose = "Describe the Practitioner that will be returned by the HPI"
 
 //elements that have been removed

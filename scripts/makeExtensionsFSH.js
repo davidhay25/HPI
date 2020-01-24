@@ -2,27 +2,21 @@
 
 //generate FSH files from models
 
-//if an extension is used more than once in the
 
 let fs = require('fs');
 let syncRequest = require('sync-request');
 
-//set extensionType to fsh to generate a fsh file rather than a
 //let outFolder = "/Users/davidhay/tmp/";
 let outFolder = "../shorthand/";
 
-let IGEntryType = 'http://clinfhir.com/StructureDefinition/igEntryType';
-let canonicalUrl = 'http://clinfhir.com/fhir/StructureDefinition/canonicalUrl';
+//let IGEntryType = 'http://clinfhir.com/StructureDefinition/igEntryType';
+//let canonicalUrl = 'http://clinfhir.com/fhir/StructureDefinition/canonicalUrl';
 
 let nzPrefix = "http://hl7.org.nz/fhir/StructureDefinition";    //the prefix for NZ extensions...
 
-//let remoteFhirServer = "http://home.clinfhir.com:8040/baseDstu3/";
+
 let remoteFhirServer = "http://home.clinfhir.com:8054/baseR4/"; //the server where the models are stored
 
-
-//if the url is null, then no upload
-//let uploadServer = "http://home.clinfhir.com:8054/baseR4/";     //the server to upload the Extension def SD's to...
-//let uploadServer = null;
 
 //the extension from the LM where the extension url is placed...
 let extensionUrl = "http://clinfhir.com/fhir/StructureDefinition/simpleExtensionUrl";
@@ -33,7 +27,7 @@ let extensionUrl = "http://clinfhir.com/fhir/StructureDefinition/simpleExtension
 //let outFolder = "/Users/davidhay/Dropbox/contracting/MOH/ResourcesForIG/extensions/";
 
 
-let hashValueSet = {missing:[]}   //all the valuesets in the models. missing are coded with no VS
+//let hashValueSet = {missing:[]}   //all the valuesets in the models. missing are coded with no VS
 
 
 //let arModels = ["HpiPractitionerRole"];
@@ -48,17 +42,18 @@ options.timeout = 20000;        //20 seconds
 
 //the implementation guide - the one on file...
 //let IGPath = "/Users/davidhay/Dropbox/contracting/MOH/ResourcesForIG/nzRegistry.json";
-let IGPath = "/Users/davidhay/Dropbox/contracting/MOH/ResourcesForNhipIG/nhipIG.json";
-let IG = JSON.parse(fs.readFileSync(IGPath).toString());
+//let IGPath = "/Users/davidhay/Dropbox/contracting/MOH/ResourcesForNhipIG/nhipIG.json";
+l//et IG = JSON.parse(fs.readFileSync(IGPath).toString());
 
-/*
+ /* Not using at present, but don't delete
 let url = remoteFhirServer + 'ImplementationGuide/cf-artifacts-nz3';
 let response = syncRequest('GET', url, options);
 let IG = JSON.parse(response.body.toString());
 
-*/
+
 
 //get all the models from the IG todo - need to only get LMs...
+
 IG.definition.resource.forEach(function (item) {
     if (item.exampleCanonical) {
         //this is an example...
@@ -69,26 +64,26 @@ IG.definition.resource.forEach(function (item) {
         arModels.push(id)
     }
 });
-
+*/
 
 
 arModels = ["HpiOrganization"];
-arModels = ["HpiLocation"];
-arModels = ["HpiPractitionerRole"];
-arModels = ["HpiPractitioner"];
+//arModels = ["HpiLocation"];
+//arModels = ["HpiPractitionerRole"];
+//arModels = ["HpiPractitioner"];
 
-arModels = ["HpiPractitioner","NzNHIPatient"];
-//arModels = ["Nzulm"];
+//arModels = ["HpiPractitioner","NzNHIPatient","HpiPractitionerRole"];
+
 
 //assume all the models are for the same IG...
 let arIgEntry = [];   //a set of definition.resource entries to insert into an IG. ?todo directly update IG?
 
 arModels.forEach(function (modelId) {
-   // console.log('Examining '+modelId)
-    let urlModel = remoteFhirServer + "StructureDefinition/"+modelId;
-    //console.log("Load model: "+ urlModel)
 
-    let first = true;
+    let urlModel = remoteFhirServer + "StructureDefinition/"+modelId;
+
+
+ 
 
     let response = syncRequest('GET', urlModel, options);
     let model = JSON.parse(response.body.toString());
@@ -154,7 +149,7 @@ arModels.forEach(function (modelId) {
 
     });
 
-    //console.log(JSON.stringify(hashExtension,null,2));
+ 
 
     for (var key in hashExtension) {
         let item = hashExtension[key]
@@ -162,7 +157,7 @@ arModels.forEach(function (modelId) {
 
         //only make ED's that are in NZ's domain...
         if (url.startsWith(nzPrefix))  {
-            //console.log("working on "+url)
+
 
             let fsh;
             if (item.ed.length == 1) {
@@ -200,64 +195,15 @@ arModels.forEach(function (modelId) {
 
 });
 
-//now write out the snippet for the IG
-//let filePath = outFolder +'IG-snippet.json';
-//fs.writeFileSync(filePath,JSON.stringify(arIgEntry,null,2))
-
-//write out the IG
-if (IG) {
-   // fs.writeFileSync(IGPath,JSON.stringify(IG))
-}
 
 
-
-function makeIGResource(extDef){
-
-    if (IG) {
-        let found = false;
-        let reference = "StructureDefinition/"+extDef.id;
-        IG.definition.resource.forEach(entry =>{
-
-            if (entry.reference && entry.reference.reference == reference) {
-                found = true
-            }
-        });
-        if (! found) {
-            console.log('Adding to IG')
-            let entry = {}
-            entry.extension = [{url:IGEntryType,valueCode:'extension'},{url:canonicalUrl,valueUrl:extDef.url}]
-            entry.reference = {reference:reference};
-            entry.name = extDef.name;
-            entry.description = extDef.id;
-            IG.definition.resource.push(entry)
-
-        }
-    }
-
-
-
-
-    let entry = {extension:[]};
-    entry.name = extDef.name;
-    entry.description = extDef.description;
-    entry.reference = {reference:"StructureDefinition/"+extDef.id};
-    let ext = {url:"http://clinfhir.com/StructureDefinition/canonicalUrl",valueUrl:extDef.url};
-    entry.extension.push(ext);
-
-    let extType = {url:"http://clinfhir.com/StructureDefinition/igEntryType",valueCode:'extension'};
-    entry.extension.push(extType);
-
-    return entry;
-
-}
 
 //generate a complex extension
 function makeComplexExtDef (item) {
 
-console.log('~~~~~~~~~~~')
     let arFsh = makeFSHHeader(item);    //get the common header info
     arFsh.push('')
-    let ed = item.ed[0];        //the element definition for this
+    //let ed = item.ed[0];        //the element definition for this
 
     //arFsh.push("* extension 0..0");
 
@@ -276,20 +222,19 @@ console.log('~~~~~~~~~~~')
 
 
         //temp fix for slicenames that sushi gets confused over (the name is already defined...)
-        let arFix = ['period','code','country','type']
+        let arFix = ['period','code','country','type','reason']
         if(arFix.indexOf(sliceName) > -1){
             sliceName += 'XXX'
         }
-
 
         let prefix = "* extension["+sliceName +"]";
 
         arSliceName.push({name:sliceName,ed:ed});        //will be added to the file at the end...
 
-
         //now add the details of each sub-extension
+        //todo - right now only one type per element...
         if (ed.type && ed.type.length > 0) {
-            console.log(ed)
+
             let dataType = ed.type[0].code;
             arFsh.push(prefix + ".url = \"" + sliceName + '"')
             let definition = ed.definition;
@@ -297,17 +242,40 @@ console.log('~~~~~~~~~~~')
                 arFsh.push(prefix + " ^definition = \"" + definition + '"')
             }
 
+            //if this is a reference, then check for a targetProfile
+           
+            if (dataType == 'Reference') {
+                let lne = prefix + ".value[x] only " + dataType;
+                let targetProfile = ed.type[0].targetProfile;
+                if (targetProfile) {
+                    lne += " ("
+                    targetProfile.forEach(function(canUrl,ctr){
+                        let ar = canUrl.split('/')
+                        let profileId = ar[ar.length-1] //the last segment in the path 
+                        if (ctr > 0 ) {lne += ' | '}
+                        lne += profileId
+
+                    })
+                    //lne += " ("+targetProfile+")"
+                    lne += ")"
+                }
 
 
+                
+                
 
-            arFsh.push(prefix + ".value[x] only " + dataType)
-            //arFsh.push("* value[x] only "+ dataType)
+                arFsh.push(lne)
+            } else {
+                arFsh.push(prefix + ".value[x] only " + dataType)
+            }
 
             switch (dataType) {
+
                 case 'CodeableConcept':
                 case 'Coding':
                 case 'code' :
-                    //if there's a binding, then can add to fsh file
+                     //for coded datatypes - set the binding
+                    //if there's a binding, then can add to fsh file. fallthrough is deliberate
                     if (ed.binding && ed.binding.valueSet) {
 
                         let vs = ed.binding.valueSet;
@@ -317,7 +285,7 @@ console.log('~~~~~~~~~~~')
                         if (strength) {
                             lne += " ("+strength+")"
                         }
-                        //console.log(lne)
+
                         arFsh.push(lne)
                     }
                     break;
@@ -404,11 +372,12 @@ function makeFSHHeader(item) {
 
         arFsh.push("Extension: " + id);
         arFsh.push("Id: " + id);
-        arFsh.push('Description:  "None supplied yet"');
+        arFsh.push('Description: ' + '"' + item.ed[0].definition + '"');
+        arFsh.push("//These files were generated by a script from the "+modelId+" model");
 
     }
 
-    return arFsh;
+    return arFsh;s
 }
 
 function getSingleExtensionValue(resource,url) {

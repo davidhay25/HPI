@@ -19,104 +19,106 @@
   "fhirVersion": [
     "4.0.0"
   ],
-      "pageDEP": {
-    
-        "title": "Documentation",
+  "pageDEP": {
+    "title": "Documentation",
+    "page": [
+      {
+        "nameUrl": "Binary/cf-Home1564526086491",
+        "title": "Home",
         "page": [
-            {
-                "nameUrl": "Binary/cf-Home1564526086491",
-                "title": "Home",
-                "page": [
-                    {
-                        "nameUrl": "Binary/cf-Organization1564520207166",
-                        "title": "Organization"
-                    },
-                    {
-                        "nameUrl": "Binary/cf-Security1564515057689",
-                        "title": "Security"
-                    },
-                    {
-                        "nameUrl": "Binary/cf-Must-support1564521082739",
-                        "title": "Must support"
-                    }
-                ]
-            },
-            {
-                "nameUrl": "Binary/cf-Usage-Notes1564514010101",
-                "title": "Usage Notes",
-                "page": [{
-                    "nameUrl": "Binary/cf-Patient-Update1564514212603",
-                    "title": "Patient Update"
-                }]
-            },
-            {
-                "nameUrl": "Binary/cf-Design-Notes1564514800098",
-                "title": "Design Notes",
-                "page": [
-                    {
-                        "nameUrl": "Binary/cf-Patient1564520872247",
-                        "title": "Patient",
-                        "page": [
-                            {
-                                "nameUrl": "Binary/cf-Summary1564520900667",
-                                "title": "Summary",
-                                "page": [
-                                    {
-                                        "nameUrl": "Binary/cf-NHI1564523228015",
-                                        "title": "NHI"
-                                    },
-                                    {
-                                        "nameUrl": "Binary/cf-Address1564528794392",
-                                        "title": "Address"
-                                    }
-                                ]
-                            },
-                            {
-                                "nameUrl": "Binary/cf-Search1564528336369",
-                                "title": "Search"
-                            }
-                        ]
-                    },
-                    {
-                        "nameUrl": "Binary/cf-Practitioner1564520883172",
-                        "title": "Practitioner",
-                        "page": [{
-                            "nameUrl": "Binary/cf-Qualificat1564526675887",
-                            "title": "Qualifications"
-                        }]
-                    }
-                ]
-            }
+          {
+            "nameUrl": "Binary/cf-Organization1564520207166",
+            "title": "Organization"
+          },
+          {
+            "nameUrl": "Binary/cf-Security1564515057689",
+            "title": "Security"
+          },
+          {
+            "nameUrl": "Binary/cf-Must-support1564521082739",
+            "title": "Must support"
+          }
         ]
-    },
-    
+      },
+      {
+        "nameUrl": "Binary/cf-Usage-Notes1564514010101",
+        "title": "Usage Notes",
+        "page": [
+          {
+            "nameUrl": "Binary/cf-Patient-Update1564514212603",
+            "title": "Patient Update"
+          }
+        ]
+      },
+      {
+        "nameUrl": "Binary/cf-Design-Notes1564514800098",
+        "title": "Design Notes",
+        "page": [
+          {
+            "nameUrl": "Binary/cf-Patient1564520872247",
+            "title": "Patient",
+            "page": [
+              {
+                "nameUrl": "Binary/cf-Summary1564520900667",
+                "title": "Summary",
+                "page": [
+                  {
+                    "nameUrl": "Binary/cf-NHI1564523228015",
+                    "title": "NHI"
+                  },
+                  {
+                    "nameUrl": "Binary/cf-Address1564528794392",
+                    "title": "Address"
+                  }
+                ]
+              },
+              {
+                "nameUrl": "Binary/cf-Search1564528336369",
+                "title": "Search"
+              }
+            ]
+          },
+          {
+            "nameUrl": "Binary/cf-Practitioner1564520883172",
+            "title": "Practitioner",
+            "page": [
+              {
+                "nameUrl": "Binary/cf-Qualificat1564526675887",
+                "title": "Qualifications"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "definition": {
-    "page" : {
-        "nameUrl":"front.md",
-        "title" : "Introduction",
-        "generation":"markdown",
-        "page" : [
-         {
-                "nameUrl":"usage.md",
-                "title" : "Usage notes",
-                "generation":"markdown"
-            },
-            {
-                "nameUrl":"resources.md",
-                "title" : "General notes on resources",
-                "generation":"markdown"
-            },
-            {
-                "nameUrl":"terminology.md",
-                "title" : "Terminology",
-                "generation":"markdown"
-            },
-            {
-                "nameUrl":"identifiers.md",
-                "title" : "Identifiers",
-                "generation":"markdown"
-            }
-        ]
+    "page": {
+      "nameUrl": "front.md",
+      "title": "Introduction",
+      "generation": "markdown",
+      "page": [
+        {
+          "nameUrl": "usage.md",
+          "title": "Usage notes",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "resources.md",
+          "title": "General notes on resources",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "terminology.md",
+          "title": "Terminology",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "identifiers.md",
+          "title": "Identifiers",
+          "generation": "markdown"
+        }
+      ]
     },
     "resource": [
       {
@@ -178,7 +180,7 @@
         },
         "name": "Practitioner with a degree and registration",
         "description": "An example with 2 qualification elements - a nursing degree and a registration as a Nurse Practitioner",
-        "exampleBoolean": false
+        "exampleBoolean": true
       },
       {
         "reference": {
@@ -186,7 +188,7 @@
         },
         "name": "Supervised Pharmacist",
         "description": "A Pharmacist with a supervision condition",
-        "exampleBoolean": false
+        "exampleBoolean": true
       },
       {
         "reference": {
@@ -218,23 +220,22 @@
         },
         "name": "Supervised psychologist",
         "description": "A clinical Psychologist under supervised practice",
-        "exampleBoolean": false
+        "exampleBoolean": true
       },
       {
         "reference": {
           "reference": "Organization/organization1"
         },
         "name": "Complete example of HPI Organization",
-        "exampleBoolean": "false"
+        "exampleBoolean": "true"
       },
       {
         "reference": {
           "reference": "Location/location1"
         },
         "name": "Complete example of HPI Location",
-        "exampleBoolean": "false"
+        "exampleBoolean": "true"
       },
-      
       {
         "extension": [
           {
@@ -256,11 +257,15 @@
           },
           {
             "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
-            "valueString": "HPIPractitioner"
+            "valueString": "profile-HpiPractitioner"
           },
           {
             "url": "http://clinfhir.com/StructureDefinition/docKey",
             "valueString": "practitioner.md"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/profileForLM",
+            "valueString": "HpiPractitioner-profile"
           }
         ],
         "reference": {
@@ -277,13 +282,16 @@
           },
           {
             "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
-            "valueString": "H"
+            "valueString": "profile-HpiPractitionerRole"
           },
           {
             "url": "http://clinfhir.com/StructureDefinition/docKey",
             "valueString": "practitionerRole.md"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/profileForLM",
+            "valueString": "HpiPractitionerRole-profile"
           }
-          
         ],
         "reference": {
           "reference": "StructureDefinition/HpiPractitionerRole"
@@ -298,8 +306,16 @@
             "valueCode": "logical"
           },
           {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "profile-HpiLocation"
+          },
+          {
             "url": "http://clinfhir.com/StructureDefinition/docKey",
             "valueString": "location.md"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/profileForLM",
+            "valueString": "HpiLocation-profile"
           }
         ],
         "reference": {
@@ -315,8 +331,16 @@
             "valueCode": "logical"
           },
           {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "profile-HpiOrganization"
+          },
+          {
             "url": "http://clinfhir.com/StructureDefinition/docKey",
             "valueString": "organization.md"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/profileForLM",
+            "valueString": "HpiOrganization-profil  e"
           }
         ],
         "reference": {
@@ -325,7 +349,6 @@
         "name": "HPI Organization model",
         "description": "The information model that will describe the profile on Organization for HPI interactions"
       },
-     
       {
         "extension": [
           {
@@ -430,8 +453,8 @@
         "reference": {
           "reference": "CodeSystem/nzinfosource"
         },
-        "name": "New Zealand Information source for DOB & DOD",
-        "description": "nzinfosource"
+        "name": "nzinfosource",
+        "description": "New Zealand Information source for DOB & DOD"
       },
       {
         "extension": [
@@ -441,14 +464,14 @@
           },
           {
             "url": "http://clinfhir.com/fhir/StructureDefinition/canonicalUrl",
-            "valueUrl": "http://standards.digital.health.nz/fhir/CodeSystem/nziwi"
+            "valueUrl": "http://standards.digital.health.nz/fhir/CodeSystem/iwi"
           }
         ],
         "reference": {
-          "reference": "CodeSystem/nziwi"
+          "reference": "CodeSystem/iwi"
         },
-        "name": "nziwi",
-        "description": "nziwi"
+        "name": "iwi",
+        "description": "New Zealand Iwi"
       },
       {
         "extension": [
@@ -465,7 +488,7 @@
           "reference": "CodeSystem/nzmaoridescent"
         },
         "name": "nzmaoridescent",
-        "description": "nzmaoridescent"
+        "description": "Is the person of Maori descent"
       },
       {
         "extension": [
@@ -482,7 +505,7 @@
           "reference": "ValueSet/addressnotvalidated"
         },
         "name": "addressnotvalidated",
-        "description": "addressnotvalidated"
+        "description": "Reason why an address was not validated"
       },
       {
         "extension": [
@@ -499,7 +522,7 @@
           "reference": "ValueSet/dodinfosource"
         },
         "name": "dodinfosource",
-        "description": "dodinfosource"
+        "description": "Date of death information source"
       },
       {
         "extension": [
@@ -516,7 +539,7 @@
           "reference": "ValueSet/nzdomcode"
         },
         "name": "nzdomcode",
-        "description": "nzdomcode"
+        "description": "NZ Domicile code"
       },
       {
         "extension": [
@@ -533,7 +556,7 @@
           "reference": "ValueSet/nzinfosource"
         },
         "name": "Information Source",
-        "description": "nzinfosource"
+        "description": "Information source"
       },
       {
         "extension": [
@@ -875,7 +898,7 @@
         "name": "PatientaddressDerived",
         "description": "cf-patient-addressDerived"
       },
-       {
+      {
         "extension": [
           {
             "url": "http://clinfhir.com/StructureDefinition/igEntryType",
@@ -891,6 +914,201 @@
         },
         "name": "NHI Patient model",
         "description": "The information model that will describe the profile on Patient for the NHI interactions"
+      },
+      {
+        "name": "HPIPerson",
+        "description": "HPI Provider identifier system. Also known as the HPI_CPN (Common Person Number)",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-cpn"
+        }
+      },
+      {
+        "name": "HPIFacility",
+        "description": "The New Zealand HPI Facility identifier system.",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-fac"
+        }
+      },
+      {
+        "name": "HPIOrganization",
+        "description": "HPI Organization identifier system.",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-org"
+        }
+      },
+      {
+        "name": "HPIChirprcactic",
+        "description": "Chiropractic Board Register number.",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-chiro"
+        }
+      },
+      {
+        "name": "HPIDental",
+        "description": "Dental Council Register Number .",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-dental"
+        }
+      },
+      {
+        "name": "HPIDiet",
+        "description": "Dietitians Board Register Number .",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-diet"
+        }
+      },
+      {
+        "name": "HPIMedLab",
+        "description": "Medical Laboratory Science Board Register Number .",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-medlab"
+        }
+      },
+      {
+        "name": "NZOccupationalTherapy",
+        "description": "Occupational Therapy Board Register Number ",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-occ"
+        }
+      },
+      {
+        "name": "NZOsteo",
+        "description": "Osteopathic Council Register Number ",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-osteo"
+        }
+      },
+      {
+        "name": "NZPharmacy",
+        "description": "Pharmacy Council of New Zealand Register Number ",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-pharmacy"
+        }
+      },
+      {
+        "name": "NZPhysio",
+        "description": "Physiotherapy Board Register Number",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-physio"
+        }
+      },
+      {
+        "name": "NZPodiatry",
+        "description": "Podiatrists Board Register Number ",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-podiatry"
+        }
+      },
+      {
+        "name": "NZPsychologist",
+        "description": "Psychologists Board Register Number ",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-psychologist"
+        }
+      },
+      {
+        "name": "NZRadioTechnician",
+        "description": "Medical Radiation Technologists Board Register Number ",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-radtech"
+        }
+      },
+      {
+        "name": "NZOptitian",
+        "description": "Optometrists & Dispensing Opticians Board Register Number ",
+        "extension": [
+          {
+            "url": "http://clinfhir.com/StructureDefinition/igEntryType",
+            "valueCode": "namingsystem"
+          }
+        ],
+        "reference": {
+          "reference": "NamingSystem/hpi-optician"
+        }
       }
     ]
   }

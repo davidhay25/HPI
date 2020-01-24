@@ -1,5 +1,6 @@
 Instance:   Myperson
 InstanceOf: Patient
+
 * extension[0].url = "http://clinfhir.com/ext"
 * extension[0].valueString = "Test"
 * extension[1].url = "http://clinfhir.com/ext1"

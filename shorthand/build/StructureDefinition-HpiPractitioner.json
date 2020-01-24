@@ -27,7 +27,7 @@
     }
   ],
   "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitioner",
-  "version": "4.0.1",
+  "version": "0.1.0",
   "name": "HPIPractitioner",
   "title": "HPI Practitioner",
   "status": "draft",

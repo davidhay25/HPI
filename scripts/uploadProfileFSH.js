@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+/**
+ * Upload the fsh files for profiles and extensions, and the generated SD as well
+ */
+
 let fs = require('fs');
 let syncRequest = require('sync-request');
 let serverRoot = "http://home.clinfhir.com:8054/baseR4/"
@@ -10,57 +14,66 @@ let path = '../shorthand/';
 
 fs.readdirSync(path).forEach(function(file) {
     let ar = file.split('-')
-    if (ar[0]== 'profile' && ar.length > 1) {       //this is a profile...
-        //assume the filename format is profile-{id}.fsh with id being the id of the logical model.
-        //the profile id on the server will then be the same as this filename... (incl. case)
-        //get the id
-        let name = ar[1]
-        let ar1 = name.split('.')
-        let id = ar1[0]
-       
-        let url = serverRoot + "Binary/" + id;  //address of the fsh Binary on the server
-        let fullFileName = path + file;     //location of the fsh file
+    if (ar.length > 1) {
+
+        if (ar[0]== 'profile' || ar[0]== 'extension') {       //this is a profile or an extension...
+            //assume the filename format is profile-{id}.fsh with id being the id of the logical model.
+            //the profile id on the server will then be the same as this filename... (incl. case)
+            //get the id
+
+            //the name is everything after the first '-'
+            let type = ar[0];
+            ar.splice(0,1);
+            let name = ar.join('-') ;//   ar[1]
+
+            //remove the extension to get the id
+            let ar1 = name.split('.')
+            let id =  ar1[0];      
         
-        //create a Binary resource and upload to the server
-        let contents = fs.readFileSync(fullFileName, {encoding: 'utf8'})
-        let resource = {resourceType:'Binary',contentType:'text/plain'}
-        resource.id = id;
-        let buff =  Buffer.from(contents);
-        resource.data  = buff.toString('base64');
-        PUTFile(url,resource)
-
-
-        //see if there is a generated SD and upload that as well. 
-        //Note that the IG needs to have an extension in the entry for the logical model that references this...
-        let SDFileName = path + "build/StructureDefinition-"+ id + ".json";
-        try {
-            let sdContents = fs.readFileSync(SDFileName, {encoding: 'utf8'})
-            let resource = JSON.parse(sdContents)
-
-            let sdId = id+"-profile";
-            resource.id = sdId;  
-            let sdUrl = serverRoot + "StructureDefinition/"+sdId
-            //console.log(sdUrl)
+            let url = serverRoot + "Binary/" + type + "-" + id;  //address of the fsh Binary on the server
             
+            let fullFileName = path + file;     //location of the fsh file
+            
+            //create a Binary resource and upload to the server
+            let contents = fs.readFileSync(fullFileName, {encoding: 'utf8'})
+            let resource = {resourceType:'Binary',contentType:'text/plain'}
+            resource.id = type + "-" + id; //add the type (extension  or profile) to the id...
+            let buff =  Buffer.from(contents);
+            resource.data  = buff.toString('base64');
+            PUTFile(url,resource)
 
-            delete resource.version             //temp - need to update server
-            resource.fhirVersion = "4.0.0"
-            PUTFile(sdUrl,resource)
-        } catch (ex) {
-            console.log('No StructureDefinition found - ' + SDFileName)
+
+            //see if there is a generated SD and upload that as well. 
+            //Note that the IG needs to have an extension in the entry for the logical model that references this...
+            let SDFileName = path + "build/StructureDefinition-"+ id + ".json";
+            try {
+                let sdContents = fs.readFileSync(SDFileName, {encoding: 'utf8'})
+                let resource = JSON.parse(sdContents)
+
+                let sdId = id+"-profile";
+                resource.id = sdId;  
+                let sdUrl = serverRoot + "StructureDefinition/"+sdId
+                
+                
+
+                delete resource.version             //temp - need to update server
+                resource.fhirVersion = "4.0.0"
+                PUTFile(sdUrl,resource)
+            } catch (ex) {
+                console.log('No StructureDefinition found - ' + SDFileName)
+            }
+
+
+
         }
-
-
-
-    }
-
+}
 
 })
 
 
 
 
-
+//PUT a file to the server, given url and contents
 function PUTFile(url,resource) {
 
     console.log(url);

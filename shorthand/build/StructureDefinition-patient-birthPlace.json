@@ -15,7 +15,7 @@
     }
   ],
   "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-birthPlace",
-  "version": "4.0.1",
+  "version": "0.1.0",
   "name": "patient-birthPlace",
   "status": "active",
   "date": "2019-11-01T09:29:23+11:00",
@@ -202,9 +202,9 @@
         ]
       },
       {
-        "id": "Extension.extension:countryXXX",
+        "id": "Extension.extension:country",
         "path": "Extension.extension",
-        "sliceName": "countryXXX",
+        "sliceName": "country",
         "short": "Additional content defined by implementations",
         "definition": "The birth country.",
         "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
@@ -221,7 +221,10 @@
         },
         "type": [
           {
-            "code": "Extension"
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/contactpoint-country"
+            ]
           }
         ],
         "constraint": [
@@ -252,7 +255,7 @@
         ]
       },
       {
-        "id": "Extension.extension:countryXXX.id",
+        "id": "Extension.extension:country.id",
         "path": "Extension.extension.id",
         "representation": [
           "xmlAttr"
@@ -287,7 +290,7 @@
         ]
       },
       {
-        "id": "Extension.extension:countryXXX.extension",
+        "id": "Extension.extension:country.extension",
         "path": "Extension.extension.extension",
         "slicing": {
           "discriminator": [
@@ -299,15 +302,10 @@
           "description": "Extensions are always sliced by (at least) url",
           "rules": "open"
         },
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
+        "short": "Extension",
+        "definition": "An Extension",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Element.extension",
           "min": 0,
@@ -337,16 +335,10 @@
           }
         ],
         "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "n/a"
-          }
-        ]
+        "isSummary": false
       },
       {
-        "id": "Extension.extension:countryXXX.url",
+        "id": "Extension.extension:country.url",
         "path": "Extension.extension.url",
         "representation": [
           "xmlAttr"
@@ -372,7 +364,7 @@
             ]
           }
         ],
-        "fixedUri": "countryXXX",
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/contactpoint-country",
         "isModifier": false,
         "isSummary": false,
         "mapping": [
@@ -383,21 +375,11 @@
         ]
       },
       {
-        "id": "Extension.extension:countryXXX.value[x]",
+        "id": "Extension.extension:country.value[x]",
         "path": "Extension.extension.value[x]",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "type",
-              "path": "$this"
-            }
-          ],
-          "ordered": false,
-          "rules": "open"
-        },
         "short": "Value of extension",
-        "definition": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
-        "min": 0,
+        "definition": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/extensibility.html) for a list).",
+        "min": 1,
         "max": "1",
         "base": {
           "path": "Extension.value[x]",
@@ -406,7 +388,7 @@
         },
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "string"
           }
         ],
         "constraint": [
@@ -421,47 +403,6 @@
         ],
         "isModifier": false,
         "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "N/A"
-          }
-        ]
-      },
-      {
-        "id": "Extension.extension:countryXXX.value[x]:valueCodeableConcept",
-        "path": "Extension.extension.value[x]",
-        "sliceName": "valueCodeableConcept",
-        "short": "Value of extension",
-        "definition": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
-        "min": 0,
-        "max": "1",
-        "base": {
-          "path": "Extension.value[x]",
-          "min": 0,
-          "max": "1"
-        },
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "binding": {
-          "strength": "preferred",
-          "valueSet": "http://hl7.org/fhir/ValueSet/iso3166-1-2"
-        },
         "mapping": [
           {
             "identity": "rim",
@@ -1178,9 +1119,9 @@
   "differential": {
     "element": [
       {
-        "id": "Extension.extension:countryXXX",
+        "id": "Extension.extension:country",
         "path": "Extension.extension",
-        "sliceName": "countryXXX",
+        "sliceName": "country",
         "short": "Additional content defined by implementations",
         "definition": "The birth country.",
         "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
@@ -1197,7 +1138,10 @@
         },
         "type": [
           {
-            "code": "Extension"
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/contactpoint-country"
+            ]
           }
         ],
         "constraint": [
@@ -1224,71 +1168,6 @@
           {
             "identity": "rim",
             "map": "n/a"
-          }
-        ]
-      },
-      {
-        "id": "Extension.extension:countryXXX.url",
-        "path": "Extension.extension.url",
-        "fixedUri": "countryXXX"
-      },
-      {
-        "id": "Extension.extension:countryXXX.value[x]",
-        "path": "Extension.extension.value[x]",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "type",
-              "path": "$this"
-            }
-          ],
-          "ordered": false,
-          "rules": "open"
-        },
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "Extension.extension:countryXXX.valueCodeableConcept",
-        "path": "Extension.extension.valueCodeableConcept",
-        "sliceName": "valueCodeableConcept",
-        "short": "Value of extension",
-        "definition": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
-        "min": 0,
-        "max": "1",
-        "base": {
-          "path": "Extension.value[x]",
-          "min": 0,
-          "max": "1"
-        },
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "binding": {
-          "strength": "preferred",
-          "valueSet": "http://hl7.org/fhir/ValueSet/iso3166-1-2"
-        },
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "N/A"
           }
         ]
       },

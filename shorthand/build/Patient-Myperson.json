@@ -1,28 +1,3 @@
 {
-  "resourceType": "Patient",
-  "extension": [
-    {
-      "url": "http://clinfhir.com/ext",
-      "valueString": "Test"
-    },
-    {
-      "url": "http://clinfhir.com/ext1",
-      "extension": [
-        {
-          "url": "test",
-          "valueString": "ttt"
-        }
-      ]
-    }
-  ],
-  "name": [
-    {
-      "family": "Anyperson",
-      "given": [
-        "Eve",
-        "Steven"
-      ]
-    }
-  ],
-  "birthDate": "1960-04-25"
+  "resourceType": "Patient"
 }
