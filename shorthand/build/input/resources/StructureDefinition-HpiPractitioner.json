@@ -1,34 +1,15 @@
 {
   "resourceType": "StructureDefinition",
   "id": "HpiPractitioner",
-  "meta": {
-    "lastUpdated": "2019-11-01T09:29:23.356+11:00"
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">HPI Practitioner profile</div>",
+    "status": "additional"
   },
   "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitioner",
   "version": "0.1.0",
-  "name": "HPIPractitioner",
+  "name": "HpiPractitioner",
   "title": "HPI Practitioner",
-  "status": "draft",
-  "date": "2019-11-01T09:29:23+11:00",
-  "publisher": "Health Level Seven International (Patient Administration)",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://hl7.org/fhir"
-        }
-      ]
-    },
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/pafm/index.cfm"
-        }
-      ]
-    }
-  ],
+  "status": "active",
   "description": "The practitioner exposed by the HPI.",
   "purpose": "Describe the Practitioner that will be returned by the HPI",
   "fhirVersion": "4.0.1",
@@ -57,7 +38,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Practitioner",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Practitioner",
+  "baseDefinition": "http://hl7.org.nz/fhir/StructureDefinition/NzPractitioner",
   "derivation": "constraint",
   "snapshot": {
     "element": [
@@ -420,9 +401,9 @@
         ]
       },
       {
-        "id": "Practitioner.extension:deathDate",
+        "id": "Practitioner.extension:nzethnicity",
         "path": "Practitioner.extension",
-        "sliceName": "deathDate",
+        "sliceName": "nzethnicity",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
         "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
@@ -431,7 +412,7 @@
           "user content"
         ],
         "min": 0,
-        "max": "1",
+        "max": "4",
         "base": {
           "path": "DomainResource.extension",
           "min": 0,
@@ -441,7 +422,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org.nz/fhir/StructureDefinition/deathDate"
+              "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity"
             ]
           }
         ],
@@ -473,9 +454,9 @@
         ]
       },
       {
-        "id": "Practitioner.extension:nzethnicity",
+        "id": "Practitioner.extension:practitioner-deathdate",
         "path": "Practitioner.extension",
-        "sliceName": "nzethnicity",
+        "sliceName": "practitioner-deathdate",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
         "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
@@ -484,7 +465,7 @@
           "user content"
         ],
         "min": 0,
-        "max": "4",
+        "max": "1",
         "base": {
           "path": "DomainResource.extension",
           "min": 0,
@@ -494,7 +475,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity"
+              "http://hl7.org.nz/fhir/StructureDefinition/practitioner-deathdate"
             ]
           }
         ],
@@ -2983,249 +2964,24 @@
   "differential": {
     "element": [
       {
-        "id": "Practitioner.extension",
+        "id": "Practitioner.extension:practitioner-deathdate",
         "path": "Practitioner.extension",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "url"
-            }
-          ],
-          "ordered": false,
-          "rules": "open"
-        }
-      },
-      {
-        "id": "Practitioner.extension:deathDate",
-        "path": "Practitioner.extension",
-        "sliceName": "deathDate",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
+        "sliceName": "practitioner-deathdate",
         "max": "1",
-        "base": {
-          "path": "DomainResource.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org.nz/fhir/StructureDefinition/deathDate"
+              "http://hl7.org.nz/fhir/StructureDefinition/practitioner-deathdate"
             ]
           }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "N/A"
-          }
         ]
-      },
-      {
-        "id": "Practitioner.extension:nzethnicity",
-        "path": "Practitioner.extension",
-        "sliceName": "nzethnicity",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
-        "max": "4",
-        "base": {
-          "path": "DomainResource.extension",
-          "min": 0,
-          "max": "*"
-        },
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity"
-            ]
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "N/A"
-          }
-        ]
-      },
-      {
-        "id": "Practitioner.identifier",
-        "path": "Practitioner.identifier",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "use"
-            }
-          ],
-          "rules": "openAtEnd"
-        }
-      },
-      {
-        "id": "Practitioner.identifier:HPI",
-        "path": "Practitioner.identifier",
-        "sliceName": "HPI",
-        "short": "An identifier for the person as this agent",
-        "definition": "An identifier that applies to this person in this role.",
-        "requirements": "Often, specific identities are assigned for the agent.",
-        "min": 0,
-        "max": "1",
-        "base": {
-          "path": "Practitioner.identifier",
-          "min": 0,
-          "max": "*"
-        },
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "mustSupport": true,
-        "isModifier": false,
-        "isSummary": true,
-        "mapping": [
-          {
-            "identity": "w5",
-            "map": "FiveWs.identifier"
-          },
-          {
-            "identity": "v2",
-            "map": "PRD-7 (or XCN.1)"
-          },
-          {
-            "identity": "rim",
-            "map": "./id"
-          },
-          {
-            "identity": "servd",
-            "map": "./Identifiers"
-          }
-        ]
-      },
-      {
-        "id": "Practitioner.identifier:HPI.use",
-        "path": "Practitioner.identifier.use",
-        "fixedCode": "official"
-      },
-      {
-        "id": "Practitioner.identifier:HPI.system",
-        "path": "Practitioner.identifier.system",
-        "fixedUri": "https://standards.digital.health.nz/id/hpi-person"
       },
       {
         "id": "Practitioner.identifier:dormant",
         "path": "Practitioner.identifier",
         "sliceName": "dormant",
-        "short": "An identifier for the person as this agent",
-        "definition": "An identifier that applies to this person in this role.",
-        "requirements": "Often, specific identities are assigned for the agent.",
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "Practitioner.identifier",
-          "min": 0,
-          "max": "*"
-        },
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "mustSupport": true,
-        "isModifier": false,
-        "isSummary": true,
-        "mapping": [
-          {
-            "identity": "w5",
-            "map": "FiveWs.identifier"
-          },
-          {
-            "identity": "v2",
-            "map": "PRD-7 (or XCN.1)"
-          },
-          {
-            "identity": "rim",
-            "map": "./id"
-          },
-          {
-            "identity": "servd",
-            "map": "./Identifiers"
-          }
-        ]
+        "mustSupport": true
       },
       {
         "id": "Practitioner.identifier:dormant.use",
@@ -3290,20 +3046,7 @@
         "id": "Practitioner.qualification.extension:practitioner-qualification-status",
         "path": "Practitioner.qualification.extension",
         "sliceName": "practitioner-qualification-status",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
         "max": "1",
-        "base": {
-          "path": "Element.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
@@ -3311,52 +3054,12 @@
               "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-status"
             ]
           }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "n/a"
-          }
         ]
       },
       {
         "id": "Practitioner.qualification.extension:practitioner-additional-authorizations",
         "path": "Practitioner.qualification.extension",
         "sliceName": "practitioner-additional-authorizations",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "Element.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
@@ -3364,52 +3067,12 @@
               "http://hl7.org.nz/fhir/StructureDefinition/practitioner-additional-authorizations"
             ]
           }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "n/a"
-          }
         ]
       },
       {
         "id": "Practitioner.qualification.extension:practitioner-scope-of-practice",
         "path": "Practitioner.qualification.extension",
         "sliceName": "practitioner-scope-of-practice",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "Element.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
@@ -3417,52 +3080,12 @@
               "http://hl7.org.nz/fhir/StructureDefinition/practitioner-scope-of-practice"
             ]
           }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "n/a"
-          }
         ]
       },
       {
         "id": "Practitioner.qualification.extension:practitioner-conditions-on-practice",
         "path": "Practitioner.qualification.extension",
         "sliceName": "practitioner-conditions-on-practice",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "Element.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
@@ -3470,84 +3093,19 @@
               "http://hl7.org.nz/fhir/StructureDefinition/practitioner-conditions-on-practice"
             ]
           }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "n/a"
-          }
         ]
       },
       {
         "id": "Practitioner.qualification.extension:practitioner-qualification-initialDate",
         "path": "Practitioner.qualification.extension",
         "sliceName": "practitioner-qualification-initialDate",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
         "max": "1",
-        "base": {
-          "path": "Element.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
             "profile": [
               "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-initialDate"
             ]
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "n/a"
           }
         ]
       }

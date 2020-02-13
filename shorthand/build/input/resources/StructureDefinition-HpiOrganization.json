@@ -1,34 +1,15 @@
 {
   "resourceType": "StructureDefinition",
   "id": "HpiOrganization",
-  "meta": {
-    "lastUpdated": "2019-11-01T09:29:23.356+11:00"
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">HPI Organization profile</div>",
+    "status": "additional"
   },
   "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiOrganization",
   "version": "0.1.0",
   "name": "HpiOrganization",
   "title": "HPI Organization",
-  "status": "draft",
-  "date": "2019-11-01T09:29:23+11:00",
-  "publisher": "Health Level Seven International (Patient Administration)",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://hl7.org/fhir"
-        }
-      ]
-    },
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/pafm/index.cfm"
-        }
-      ]
-    }
-  ],
+  "status": "active",
   "description": "Organizations used by the HPI.",
   "purpose": "Describe the Organization that will be returned by the HPI",
   "fhirVersion": "4.0.1",
@@ -2439,52 +2420,13 @@
         "id": "Organization.extension:organization-period",
         "path": "Organization.extension",
         "sliceName": "organization-period",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
         "max": "1",
-        "base": {
-          "path": "DomainResource.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
             "profile": [
               "http://hl7.org.nz/fhir/StructureDefinition/organization-period"
             ]
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "N/A"
           }
         ]
       },
@@ -2505,55 +2447,8 @@
         "id": "Organization.identifier:orgId",
         "path": "Organization.identifier",
         "sliceName": "orgId",
-        "short": "Identifies this organization  across multiple systems",
-        "definition": "Identifier for the organization that is used to identify the organization across multiple disparate systems.",
-        "requirements": "Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.",
-        "min": 0,
         "max": "1",
-        "base": {
-          "path": "Organization.identifier",
-          "min": 0,
-          "max": "*"
-        },
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ],
-        "condition": [
-          "org-1"
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "mustSupport": true,
-        "isModifier": false,
-        "isSummary": true,
-        "mapping": [
-          {
-            "identity": "w5",
-            "map": "FiveWs.identifier"
-          },
-          {
-            "identity": "v2",
-            "map": "XON.10 / XON.3"
-          },
-          {
-            "identity": "rim",
-            "map": ".scopes[Role](classCode=IDENT)"
-          },
-          {
-            "identity": "servd",
-            "map": "./Identifiers"
-          }
-        ]
+        "mustSupport": true
       },
       {
         "id": "Organization.identifier:orgId.use",
@@ -2569,55 +2464,7 @@
         "id": "Organization.identifier:dormant",
         "path": "Organization.identifier",
         "sliceName": "dormant",
-        "short": "Identifies this organization  across multiple systems",
-        "definition": "Identifier for the organization that is used to identify the organization across multiple disparate systems.",
-        "requirements": "Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.",
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "Organization.identifier",
-          "min": 0,
-          "max": "*"
-        },
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ],
-        "condition": [
-          "org-1"
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "mustSupport": true,
-        "isModifier": false,
-        "isSummary": true,
-        "mapping": [
-          {
-            "identity": "w5",
-            "map": "FiveWs.identifier"
-          },
-          {
-            "identity": "v2",
-            "map": "XON.10 / XON.3"
-          },
-          {
-            "identity": "rim",
-            "map": ".scopes[Role](classCode=IDENT)"
-          },
-          {
-            "identity": "servd",
-            "map": "./Identifiers"
-          }
-        ]
+        "mustSupport": true
       },
       {
         "id": "Organization.identifier:dormant.use",
@@ -2647,20 +2494,7 @@
         "id": "Organization.alias.extension:organization-aliasType",
         "path": "Organization.alias.extension",
         "sliceName": "organization-aliasType",
-        "short": "Additional content defined by implementations",
-        "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "alias": [
-          "extensions",
-          "user content"
-        ],
-        "min": 0,
         "max": "1",
-        "base": {
-          "path": "Element.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
@@ -2668,27 +2502,7 @@
               "http://hl7.org.nz/fhir/StructureDefinition/organization-aliasType"
             ]
           }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() != value.exists()",
-            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false
+        ]
       },
       {
         "id": "Organization.address",

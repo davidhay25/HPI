@@ -4,6 +4,9 @@ Id:             HpiLocation
 Title:          "HPI Location"
 Description:    "Locations used by the HPI."
 
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>HPI Location profile</div>"
+* ^text.status = #additional
+
 * ^purpose = "Describe the Location that will be returned by the HPI"
 
 //elements that have been removed
@@ -22,6 +25,7 @@ Description:    "Locations used by the HPI."
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "use"
 * identifier ^slicing.rules = #openAtEnd
+
 * identifier contains 
     facId 0..1 MS and 
     dormant 0..* MS
@@ -29,3 +33,6 @@ Description:    "Locations used by the HPI."
 * identifier[facId].use = #official
 * identifier[dormant].system = "https://standards.digital.health.nz/id/hpi-person"
 * identifier[dormant].use = #old
+
+* alias.extension contains 
+    organization-aliasType 0..1

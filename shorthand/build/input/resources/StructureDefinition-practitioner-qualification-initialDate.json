@@ -1,27 +1,11 @@
 {
   "resourceType": "StructureDefinition",
   "id": "practitioner-qualification-initialDate",
-  "meta": {
-    "lastUpdated": "2019-11-01T09:29:23.356+11:00"
-  },
   "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-initialDate",
   "version": "0.1.0",
-  "name": "practitioner-qualification-initialDate",
+  "name": "Practitioner_qualification_initialDate",
   "status": "active",
-  "date": "2019-11-01T09:29:23+11:00",
-  "publisher": "HL7 FHIR Standard",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://hl7.org/fhir"
-        }
-      ]
-    }
-  ],
-  "description": "None supplied yet",
-  "purpose": "The ability to add extensions in a structured way is what keeps FHIR resources simple.",
+  "description": "The date the practitioner first became registered with the Responsible Authority or professional body",
   "fhirVersion": "4.0.1",
   "mapping": [
     {

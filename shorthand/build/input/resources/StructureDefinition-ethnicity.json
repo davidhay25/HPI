@@ -1,27 +1,11 @@
 {
   "resourceType": "StructureDefinition",
   "id": "ethnicity",
-  "meta": {
-    "lastUpdated": "2019-11-01T09:29:23.356+11:00"
-  },
   "url": "http://hl7.org.nz/fhir/StructureDefinition/ethnicity",
   "version": "0.1.0",
-  "name": "ethnicity",
+  "name": "Ethnicity",
   "status": "active",
-  "date": "2019-11-01T09:29:23+11:00",
-  "publisher": "HL7 FHIR Standard",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://hl7.org/fhir"
-        }
-      ]
-    }
-  ],
-  "description": "None supplied yet",
-  "purpose": "The ability to add extensions in a structured way is what keeps FHIR resources simple.",
+  "description": "The ethnicity of the patient. One to six level 4 codes.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -351,43 +335,10 @@
       {
         "id": "Extension.valueCodeableConcept",
         "path": "Extension.valueCodeableConcept",
-        "sliceName": "valueCodeableConcept",
-        "short": "Value of extension",
-        "definition": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
-        "min": 0,
-        "max": "1",
-        "base": {
-          "path": "Extension.value[x]",
-          "min": 0,
-          "max": "1"
-        },
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
         "binding": {
           "strength": "extensible",
           "valueSet": "https://standards.digital.health.nz/valueset/ethnic-group-level-4"
-        },
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "N/A"
-          }
-        ]
+        }
       }
     ]
   }

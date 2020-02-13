@@ -1,27 +1,11 @@
 {
   "resourceType": "StructureDefinition",
   "id": "dhb",
-  "meta": {
-    "lastUpdated": "2019-11-01T09:29:23.356+11:00"
-  },
   "url": "http://hl7.org.nz/fhir/StructureDefinition/dhb",
   "version": "0.1.0",
-  "name": "dhb",
+  "name": "Dhb",
   "status": "active",
-  "date": "2019-11-01T09:29:23+11:00",
-  "publisher": "HL7 FHIR Standard",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://hl7.org/fhir"
-        }
-      ]
-    }
-  ],
-  "description": "None supplied yet",
-  "purpose": "The ability to add extensions in a structured way is what keeps FHIR resources simple.",
+  "description": "The District Health Board the patient resides in. It is derived from the patient's primary residential address. Not updated directly.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {

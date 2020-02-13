@@ -1,13 +1,38 @@
-Profile:        HPIPractitioner
+
+Profile:        NzPractitioner
 Parent:         Practitioner
+Id:             NzPractitioner
+Title:          "NZ Practitioner"
+Description:    "The New Zeanand base practitioner. Sets common elements and extensions that all users should support."
+
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>NZ Base Practitioner profile</div>"
+* ^text.status = #additional
+
+//top level  extensions
+* extension contains 
+    nzethnicity 0..4
+
+//must be one name with a family name
+* name 1..*
+* name.family 1..1
+
+//slice identifier to add the NHI as Must Support
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "use"
+* identifier ^slicing.rules = #openAtEnd
+* identifier contains 
+    HPI 0..1 MS 
+* identifier[HPI].system = "https://standards.digital.health.nz/id/hpi-person"
+* identifier[HPI].use = #official
+
+Profile:        HpiPractitioner
+Parent:         NzPractitioner
 Id:             HpiPractitioner
 Title:          "HPI Practitioner"
 Description:    "The practitioner exposed by the HPI."
 
-//* ^text.status = #additional
-//* ^text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">text</div>"
-
-
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>HPI Practitioner profile</div>"
+* ^text.status = #additional
 
 * ^purpose = "Describe the Practitioner that will be returned by the HPI"
 
@@ -19,26 +44,21 @@ Description:    "The practitioner exposed by the HPI."
 
 //top level  extensions
 * extension contains 
-    deathDate 0..1 and 
-    nzethnicity 0..4
+    practitioner-deathdate 0..1 
 
-//identifier - current and dormant
+//slice identifier to add none or more dormant NHI as Must Support
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "use"
 * identifier ^slicing.rules = #openAtEnd
 * identifier contains 
-    HPI 0..1 MS and 
     dormant 0..* MS
-* identifier[HPI].system = "https://standards.digital.health.nz/id/hpi-person"
-* identifier[HPI].use = #official
 * identifier[dormant].system = "https://standards.digital.health.nz/id/hpi-person"
 * identifier[dormant].use = #old
 
-* name 1..*
-* name.family 1..1
-
+//the gender is required buy the HPI
 * gender 1..1
 
+//many extensions on qualification
 * qualification.extension contains
     practitioner-qualification-status 0..1 and
     practitioner-additional-authorizations 0..* and

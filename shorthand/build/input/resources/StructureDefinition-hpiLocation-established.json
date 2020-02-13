@@ -1,27 +1,11 @@
 {
   "resourceType": "StructureDefinition",
   "id": "hpiLocation-established",
-  "meta": {
-    "lastUpdated": "2019-11-01T09:29:23.356+11:00"
-  },
   "url": "http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-established",
   "version": "0.1.0",
-  "name": "hpiLocation-establishedExt",
+  "name": "HpiLocation_established",
   "status": "active",
-  "date": "2019-11-01T09:29:23+11:00",
-  "publisher": "HL7 FHIR Standard",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://hl7.org/fhir"
-        }
-      ]
-    }
-  ],
   "description": "The period over which the location is open",
-  "purpose": "The ability to add extensions in a structured way is what keeps FHIR resources simple.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {

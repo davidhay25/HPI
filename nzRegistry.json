@@ -161,13 +161,26 @@
         "description": "The NamingSystem that describes the identifiers from the Midwifery council"
       },
       {
+      "extension": [
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "example-patient-patient2"
+          }
+      ],
         "reference": {
           "reference": "Patient/patient2"
         },
-        "name": "Complete example of NHI Patient",
+        "name": "John Doe",
         "exampleCanonical": "http://home.clinfhir.com:8054/baseR4/StructureDefinition/NzNHIPatient"
       },
       {
+        "extension": [
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "example-practitioner-drmulti"
+          }
+      ],
+      
         "reference": {
           "reference": "Practitioner/drmulti"
         },
@@ -175,6 +188,12 @@
         "exampleBoolean": true
       },
       {
+      "extension": [
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "example-practitioner-practitioner3"
+          }
+      ],
         "reference": {
           "reference": "Practitioner/practitioner3"
         },
@@ -183,6 +202,12 @@
         "exampleBoolean": true
       },
       {
+      "extension": [
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "example-practitioner-practitionerX"
+          }
+      ],
         "reference": {
           "reference": "Practitioner/practitionerX"
         },
@@ -191,6 +216,13 @@
         "exampleBoolean": true
       },
       {
+      "extension": [
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "example-organization-organization1"
+          }
+      ],
+
         "reference": {
           "reference": "Organization/organization1"
         },
@@ -199,6 +231,12 @@
         "exampleBoolean": true
       },
       {
+      "extension": [
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "example-location-location1"
+          }
+      ],
         "reference": {
           "reference": "Location/location1"
         },
@@ -207,6 +245,12 @@
         "exampleBoolean": true
       },
       {
+       "extension": [
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "example-PractitionerRole-practitionerrole1"
+          }
+      ],
         "reference": {
           "reference": "PractitionerRole/practitionerrole1"
         },
@@ -215,6 +259,12 @@
         "exampleBoolean": true
       },
       {
+      "extension": [
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "example-practitioner-practitionerY"
+          }
+      ],
         "reference": {
           "reference": "Practitioner/practitionerY"
         },
@@ -222,20 +272,8 @@
         "description": "A clinical Psychologist under supervised practice",
         "exampleBoolean": true
       },
-      {
-        "reference": {
-          "reference": "Organization/organization1"
-        },
-        "name": "Complete example of HPI Organization",
-        "exampleBoolean": "true"
-      },
-      {
-        "reference": {
-          "reference": "Location/location1"
-        },
-        "name": "Complete example of HPI Location",
-        "exampleBoolean": "true"
-      },
+
+
       {
         "extension": [
           {
@@ -340,7 +378,7 @@
           },
           {
             "url": "http://clinfhir.com/fhir/StructureDefinition/profileForLM",
-            "valueString": "HpiOrganization-profil  e"
+            "valueString": "HpiOrganization-profile"
           }
         ],
         "reference": {
@@ -907,6 +945,14 @@
           {
             "url": "http://clinfhir.com/StructureDefinition/docKey",
             "valueString": "patient.md"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/profileForLM",
+            "valueString": "NhiPatient-profile"
+          },
+          {
+            "url": "http://clinfhir.com/fhir/StructureDefinition/fshUrl",
+            "valueString": "profile-NhiPatient"
           }
         ],
         "reference": {
