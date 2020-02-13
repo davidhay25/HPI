@@ -13,8 +13,8 @@ Description:    "The New Zeanand base practitioner. Sets common elements and ext
     nzethnicity 0..4
 
 //must be one name with a family name
-* name 1..*
-* name.family 1..1
+* name 1..* MS
+* name.family 1..1 MS
 
 //slice identifier to add the NHI as Must Support
 * identifier ^slicing.discriminator.type = #value
@@ -24,6 +24,8 @@ Description:    "The New Zeanand base practitioner. Sets common elements and ext
     HPI 0..1 MS 
 * identifier[HPI].system = "https://standards.digital.health.nz/id/hpi-person"
 * identifier[HPI].use = #official
+
+//===========================================================================================================
 
 Profile:        HpiPractitioner
 Parent:         NzPractitioner
@@ -55,7 +57,7 @@ Description:    "The practitioner exposed by the HPI."
 * identifier[dormant].system = "https://standards.digital.health.nz/id/hpi-person"
 * identifier[dormant].use = #old
 
-//the gender is required buy the HPI
+//the gender is required by the HPI
 * gender 1..1
 
 //many extensions on qualification

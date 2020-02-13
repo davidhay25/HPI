@@ -1,5 +1,33 @@
-Profile:        HpiOrganization
+
+
+Profile:        NzOrganization
 Parent:         Organization
+Id:             NzOrganization
+Title:          "NZ Organization"
+Description:    "NZ Organizations"
+
+
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>NZ Organization  profile</div>"
+* ^text.status = #additional
+
+//slice the identifier
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "use"
+* identifier ^slicing.rules = #openAtEnd
+* identifier contains 
+    orgId 0..* MS
+* identifier[orgId].system = "https://standards.digital.health.nz/id/hpi-org"
+* identifier[orgId].use = #official
+
+
+
+
+//=======================
+
+
+
+Profile:        HpiOrganization
+Parent:         NzOrganization
 Id:             HpiOrganization
 Title:          "HPI Organization"
 Description:    "Organizations used by the HPI."
@@ -22,10 +50,8 @@ Description:    "Organizations used by the HPI."
 * identifier ^slicing.discriminator.path = "use"
 * identifier ^slicing.rules = #openAtEnd
 * identifier contains 
-    orgId 0..1 MS and 
     dormant 0..* MS
-* identifier[orgId].system = "https://standards.digital.health.nz/id/hpi-org"
-* identifier[orgId].use = #official
+
 
 * identifier[dormant].system = "https://standards.digital.health.nz/id/hpi-org"
 * identifier[dormant].use = #old

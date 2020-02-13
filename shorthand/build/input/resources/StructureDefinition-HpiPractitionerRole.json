@@ -38,7 +38,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "PractitionerRole",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
+  "baseDefinition": "http://hl7.org.nz/fhir/StructureDefinition/NzPractitionerRole",
   "derivation": "constraint",
   "snapshot": {
     "element": [

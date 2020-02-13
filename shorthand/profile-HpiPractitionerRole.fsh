@@ -1,5 +1,17 @@
-Profile:        HpiPractitionerRole
+
+Profile:        NzPractitionerRole
 Parent:         PractitionerRole
+Id:             NzPractitionerRole
+Title:          "NZ Practitioner role"
+Description:    "The practitioner role used in HPI."
+
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>NZ PractitionerRole profile</div>"
+* ^text.status = #additional
+
+//================================================================================
+
+Profile:        HpiPractitionerRole
+Parent:         NzPractitionerRole
 Id:             HpiPractitionerRole
 Title:          "HPI Practitioner role"
 Description:    "The practitioner role exposed by the HPI."

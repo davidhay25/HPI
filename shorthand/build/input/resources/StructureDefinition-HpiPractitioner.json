@@ -1593,6 +1593,7 @@
             "source": "http://hl7.org/fhir/StructureDefinition/Element"
           }
         ],
+        "mustSupport": true,
         "isModifier": false,
         "isSummary": true,
         "mapping": [
@@ -1835,6 +1836,7 @@
             "source": "http://hl7.org/fhir/StructureDefinition/Element"
           }
         ],
+        "mustSupport": true,
         "isModifier": false,
         "isSummary": true,
         "mapping": [
@@ -2997,16 +2999,6 @@
         "id": "Practitioner.active",
         "path": "Practitioner.active",
         "max": "0"
-      },
-      {
-        "id": "Practitioner.name",
-        "path": "Practitioner.name",
-        "min": 1
-      },
-      {
-        "id": "Practitioner.name.family",
-        "path": "Practitioner.name.family",
-        "min": 1
       },
       {
         "id": "Practitioner.telecom",

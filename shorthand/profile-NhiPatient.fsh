@@ -1,5 +1,36 @@
-Profile:        NhiPatient
+
+Profile:        NzPatient
 Parent:         Patient
+Id:             NzPatient
+Title:          "NZ Patient"
+Description:    "The base Patient resource in NZ"
+
+* ^purpose = "Describe the Patient resource exposed by the NHI"
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>NHI Patient profile</div>"
+* ^text.status = #additional
+
+//root level extensions
+* extension contains
+    ethnicity 0..4 and
+    patient-birthPlace 0..1 and
+    patient-iwi 0..1 
+
+* name 1..1
+
+//identifier - current 
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "use"
+* identifier ^slicing.rules = #openAtEnd
+
+* identifier contains 
+    NHI 0..1 MS 
+* identifier[NHI].system = "https://standards.digital.health.nz/id/nhi"
+* identifier[NHI].use = #official
+
+//================================================================================
+
+Profile:        NhiPatient
+Parent:         NzPatient
 Id:             NhiPatient
 Title:          "NHI Patient"
 Description:    "The Patient resource exposed by the NHI."
@@ -18,28 +49,23 @@ Description:    "The Patient resource exposed by the NHI."
 
 //root level extensions
 * extension contains
-    ethnicity 0..4 and
-    patient-birthPlace 0..1 and
     patient-citizenship 0..1 and
     dhb 0..1 and
-    patient-iwi 0..1 and
     patient-maoriDescent 0..1
 
-//identifier - current and dormant
+//identifier - add  dormant
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "use"
 * identifier ^slicing.rules = #openAtEnd
 
 * identifier contains 
-    NHI 0..1 MS and 
     dormant 0..* MS
-* identifier[NHI].system = "https://standards.digital.health.nz/id/nhi"
-* identifier[NHI].use = #official
+
 * identifier[dormant].system = "https://standards.digital.health.nz/id/nhi"
 * identifier[dormant].use = #old
 
 //Name is required, and there are extensions for source, and isPreferred
-* name 1..1
+
 * name.extension contains
     informationsource  0..1 and
     iso21090-preferred 1..1
