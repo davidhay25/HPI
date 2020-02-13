@@ -1,4 +1,4 @@
-/*
+
 Profile:        NzPractitioner
 Parent:         Practitioner
 Id:             NzPractitioner
@@ -24,9 +24,9 @@ Description:    "The New Zeanand base practitioner. Sets common elements and ext
     HPI 0..1 MS 
 * identifier[HPI].system = "https://standards.digital.health.nz/id/hpi-person"
 * identifier[HPI].use = #official
-
+/*
 //===========================================================================================================
-*/
+
 Profile:        HpiPractitioner
 Parent:         NzPractitioner
 Id:             HpiPractitioner
@@ -68,3 +68,4 @@ Description:    "The practitioner exposed by the HPI."
     practitioner-conditions-on-practice 0..* and
     practitioner-qualification-initialDate 0..1
 
+*/

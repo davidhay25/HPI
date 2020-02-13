@@ -1,4 +1,4 @@
-/*
+
 Profile:        NzPractitionerRole
 Parent:         PractitionerRole
 Id:             NzPractitionerRole
@@ -9,7 +9,7 @@ Description:    "The practitioner role used in HPI."
 * ^text.status = #additional
 
 //================================================================================
-*/
+/*
 Profile:        HpiPractitionerRole
 Parent:         NzPractitionerRole
 Id:             HpiPractitionerRole
@@ -33,3 +33,5 @@ Description:    "The practitioner role exposed by the HPI."
 * availableTime 0..0
 * notAvailable 0..0
 * availabilityExceptions 0..0
+
+*/

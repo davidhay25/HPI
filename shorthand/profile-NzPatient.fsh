@@ -1,4 +1,4 @@
-/*
+
 Profile:        NzPatient
 Parent:         Patient
 Id:             NzPatient
@@ -26,9 +26,9 @@ Description:    "The base Patient resource in NZ"
     NHI 0..1 MS 
 * identifier[NHI].system = "https://standards.digital.health.nz/id/nhi"
 * identifier[NHI].use = #official
-
+/*
 //================================================================================
-*/
+
 Profile:        NhiPatient
 Parent:         NzPatient
 Id:             NhiPatient
@@ -94,3 +94,5 @@ Description:    "The Patient resource exposed by the NHI."
 //Limit the possible resources for generalPractitioner only to a PractitionerRole
 //Note that this might still be a contained resource - that's still supported by this profile
 * generalPractitioner only Reference(PractitionerRole)
+
+*/

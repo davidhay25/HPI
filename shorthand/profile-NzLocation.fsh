@@ -1,4 +1,4 @@
-/*
+
 Profile:        NzLocation
 Parent:         Location
 Id:             NzLocation
@@ -17,8 +17,8 @@ Description:    "NZ base Location"
     facId 0..1 MS 
 * identifier[facId].system = "https://standards.digital.health.nz/id/hpi-person"
 * identifier[facId].use = #official
-*/
 
+/*
 //================================================================================
 
 Profile:        HpiLocation
@@ -58,3 +58,4 @@ Description:    "Locations used by the HPI."
 
 * alias.extension contains 
     organization-aliasType 0..1
+*/

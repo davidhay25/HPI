@@ -1,5 +1,5 @@
 
-/*
+
 Profile:        NzOrganization
 Parent:         Organization
 Id:             NzOrganization
@@ -20,11 +20,11 @@ Description:    "NZ Organizations"
 * identifier[orgId].use = #official
 
 
-
+/*
 
 //=======================
 
-*/
+
 
 Profile:        HpiOrganization
 Parent:         NzOrganization
@@ -59,3 +59,5 @@ Description:    "Organizations used by the HPI."
 //add an extension to alias
 * alias.extension contains
     organization-aliasType 0..1
+
+    */
