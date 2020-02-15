@@ -567,6 +567,7 @@
               "path": "use"
             }
           ],
+          "description": "The identifiers",
           "rules": "openAtEnd"
         },
         "short": "An identifier for the person as this agent",
@@ -619,7 +620,7 @@
         "id": "Practitioner.identifier:HPI",
         "path": "Practitioner.identifier",
         "sliceName": "HPI",
-        "short": "An identifier for the person as this agent",
+        "short": "The currently active CPN (Common Person Name)",
         "definition": "An identifier that applies to this person in this role.",
         "requirements": "Often, specific identities are assigned for the agent.",
         "min": 0,
@@ -1072,7 +1073,7 @@
         "id": "Practitioner.identifier:dormant",
         "path": "Practitioner.identifier",
         "sliceName": "dormant",
-        "short": "An identifier for the person as this agent",
+        "short": "CPN (Common Person Name) identifiers that have been deprecated for this Person",
         "definition": "An identifier that applies to this person in this role.",
         "requirements": "Often, specific identities are assigned for the agent.",
         "min": 0,
@@ -2983,6 +2984,7 @@
         "id": "Practitioner.identifier:dormant",
         "path": "Practitioner.identifier",
         "sliceName": "dormant",
+        "short": "CPN (Common Person Name) identifiers that have been deprecated for this Person",
         "mustSupport": true
       },
       {

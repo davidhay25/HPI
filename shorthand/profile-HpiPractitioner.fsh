@@ -1,32 +1,4 @@
-/*
-Profile:        NzPractitioner
-Parent:         Practitioner
-Id:             NzPractitioner
-Title:          "NZ Practitioner"
-Description:    "The New Zeanand base practitioner. Sets common elements and extensions that all users should support."
 
-* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>NZ Base Practitioner profile</div>"
-* ^text.status = #additional
-
-//top level  extensions
-* extension contains 
-    nzethnicity 0..4
-
-//must be one name with a family name
-* name 1..* MS
-* name.family 1..1 MS
-
-//slice identifier to add the NHI as Must Support
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "use"
-* identifier ^slicing.rules = #openAtEnd
-* identifier contains 
-    HPI 0..1 MS 
-* identifier[HPI].system = "https://standards.digital.health.nz/id/hpi-person"
-* identifier[HPI].use = #official
-
-//===========================================================================================================
-*/
 Profile:        HpiPractitioner
 Parent:         NzPractitioner
 Id:             HpiPractitioner
@@ -56,6 +28,7 @@ Description:    "The practitioner exposed by the HPI."
     dormant 0..* MS
 * identifier[dormant].system = "https://standards.digital.health.nz/id/hpi-person"
 * identifier[dormant].use = #old
+* identifier[dormant] ^short = "CPN (Common Person Name) identifiers that have been deprecated for this Person"
 
 //the gender is required by the HPI
 * gender 1..1

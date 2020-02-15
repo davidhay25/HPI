@@ -50,13 +50,13 @@ fs.readdirSync(path).forEach(function(file) {
 
             //??? use uploadResources.js for this...
 
-            if (type == 'profile') {  // **** temp || type == 'extension') {
+            if (type == 'profile' || type == 'extension') {
                 let SDFileName = path + "build/input/resources/StructureDefinition-"+ id + ".json";
                 try {
                     let sdContents = fs.readFileSync(SDFileName, {encoding: 'utf8'})
                     let resource = JSON.parse(sdContents)
     
-                    let sdId = id+"-profile";
+                    let sdId = id+"-" + type;
                     resource.id = sdId;  
                     let sdUrl = serverRoot + "StructureDefinition/"+sdId
                 

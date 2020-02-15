@@ -7,1056 +7,364 @@
     {
       "name": "HpiEndpoint",
       "description": "Endpoints used by the HPI.",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiEndpoint",
       "baseProfile": "Endpoint",
-      "differential": {
-        "element": [
-          {
-            "id": "Endpoint.text.status",
-            "path": "Endpoint.text.status",
-            "fixedCode": "additional"
-          },
-          {
-            "id": "Endpoint.text.div",
-            "path": "Endpoint.text.div",
-            "fixedXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\">HPI Endpoint profile</div>"
-          },
-          {
-            "id": "Endpoint.name",
-            "path": "Endpoint.name",
-            "min": 1
-          }
-        ]
-      }
+      "extensions": []
     },
     {
       "name": "Endpoint",
       "description": "Core profile for Endpoint",
-      "baseProfile": "Resource"
+      "baseProfile": "Resource",
+      "url": "http://hl7.org/fhir/StructureDefinition/Endpoint"
     },
     {
       "name": "HpiLocation",
       "description": "Locations used by the HPI.",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiLocation",
       "baseProfile": "NzLocation",
-      "differential": {
-        "element": [
-          {
-            "id": "Location.extension",
-            "path": "Location.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Location.extension:hpiLocation-established",
-            "path": "Location.extension",
-            "sliceName": "hpiLocation-established",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-established"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Location.extension:hpiLocation-dhb",
-            "path": "Location.extension",
-            "sliceName": "hpiLocation-dhb",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-dhb"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Location.identifier:dormant",
-            "path": "Location.identifier",
-            "sliceName": "dormant",
-            "mustSupport": true
-          },
-          {
-            "id": "Location.identifier:dormant.use",
-            "path": "Location.identifier.use",
-            "fixedCode": "old"
-          },
-          {
-            "id": "Location.identifier:dormant.system",
-            "path": "Location.identifier.system",
-            "fixedUri": "https://standards.digital.health.nz/id/hpi-person"
-          },
-          {
-            "id": "Location.operationalStatus",
-            "path": "Location.operationalStatus",
-            "max": "0"
-          },
-          {
-            "id": "Location.alias.extension",
-            "path": "Location.alias.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Location.alias.extension:organization-aliasType",
-            "path": "Location.alias.extension",
-            "sliceName": "organization-aliasType",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/organization-aliasType"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Location.mode",
-            "path": "Location.mode",
-            "max": "0"
-          },
-          {
-            "id": "Location.physicalType",
-            "path": "Location.physicalType",
-            "max": "0"
-          },
-          {
-            "id": "Location.hoursOfOperation",
-            "path": "Location.hoursOfOperation",
-            "max": "0"
-          },
-          {
-            "id": "Location.availabilityExceptions",
-            "path": "Location.availabilityExceptions",
-            "max": "0"
-          }
-        ]
-      }
+      "extensions": [
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-established",
+          "path": "Location.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-dhb",
+          "path": "Location.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/organization-aliasType",
+          "path": "Location.alias.extension"
+        }
+      ]
     },
     {
       "name": "HpiOrganization",
       "description": "Organizations used by the HPI.",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiOrganization",
       "baseProfile": "NzOrganization",
-      "differential": {
-        "element": [
-          {
-            "id": "Organization.extension",
-            "path": "Organization.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Organization.extension:organization-period",
-            "path": "Organization.extension",
-            "sliceName": "organization-period",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/organization-period"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Organization.identifier:dormant",
-            "path": "Organization.identifier",
-            "sliceName": "dormant",
-            "mustSupport": true
-          },
-          {
-            "id": "Organization.identifier:dormant.use",
-            "path": "Organization.identifier.use",
-            "fixedCode": "old"
-          },
-          {
-            "id": "Organization.identifier:dormant.system",
-            "path": "Organization.identifier.system",
-            "fixedUri": "https://standards.digital.health.nz/id/hpi-org"
-          },
-          {
-            "id": "Organization.alias.extension",
-            "path": "Organization.alias.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Organization.alias.extension:organization-aliasType",
-            "path": "Organization.alias.extension",
-            "sliceName": "organization-aliasType",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/organization-aliasType"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Organization.address",
-            "path": "Organization.address",
-            "max": "0"
-          },
-          {
-            "id": "Organization.contact",
-            "path": "Organization.contact",
-            "max": "0"
-          }
-        ]
-      }
+      "extensions": [
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/organization-period",
+          "path": "Organization.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/organization-aliasType",
+          "path": "Organization.alias.extension"
+        }
+      ]
     },
     {
       "name": "HpiPractitioner",
       "description": "The practitioner exposed by the HPI.",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitioner",
       "baseProfile": "NzPractitioner",
-      "differential": {
-        "element": [
-          {
-            "id": "Practitioner.extension:practitioner-deathdate",
-            "path": "Practitioner.extension",
-            "sliceName": "practitioner-deathdate",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/practitioner-deathdate"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Practitioner.identifier:dormant",
-            "path": "Practitioner.identifier",
-            "sliceName": "dormant",
-            "mustSupport": true
-          },
-          {
-            "id": "Practitioner.identifier:dormant.use",
-            "path": "Practitioner.identifier.use",
-            "fixedCode": "old"
-          },
-          {
-            "id": "Practitioner.identifier:dormant.system",
-            "path": "Practitioner.identifier.system",
-            "fixedUri": "https://standards.digital.health.nz/id/hpi-person"
-          },
-          {
-            "id": "Practitioner.active",
-            "path": "Practitioner.active",
-            "max": "0"
-          },
-          {
-            "id": "Practitioner.telecom",
-            "path": "Practitioner.telecom",
-            "max": "0"
-          },
-          {
-            "id": "Practitioner.address",
-            "path": "Practitioner.address",
-            "max": "0"
-          },
-          {
-            "id": "Practitioner.gender",
-            "path": "Practitioner.gender",
-            "min": 1
-          },
-          {
-            "id": "Practitioner.photo",
-            "path": "Practitioner.photo",
-            "max": "0"
-          },
-          {
-            "id": "Practitioner.qualification.extension",
-            "path": "Practitioner.qualification.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Practitioner.qualification.extension:practitioner-qualification-status",
-            "path": "Practitioner.qualification.extension",
-            "sliceName": "practitioner-qualification-status",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-status"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Practitioner.qualification.extension:practitioner-additional-authorizations",
-            "path": "Practitioner.qualification.extension",
-            "sliceName": "practitioner-additional-authorizations",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/practitioner-additional-authorizations"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Practitioner.qualification.extension:practitioner-scope-of-practice",
-            "path": "Practitioner.qualification.extension",
-            "sliceName": "practitioner-scope-of-practice",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/practitioner-scope-of-practice"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Practitioner.qualification.extension:practitioner-conditions-on-practice",
-            "path": "Practitioner.qualification.extension",
-            "sliceName": "practitioner-conditions-on-practice",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/practitioner-conditions-on-practice"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Practitioner.qualification.extension:practitioner-qualification-initialDate",
-            "path": "Practitioner.qualification.extension",
-            "sliceName": "practitioner-qualification-initialDate",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-initialDate"
-                ]
-              }
-            ]
-          }
-        ]
-      }
+      "extensions": [
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity",
+          "path": "Practitioner.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-deathdate",
+          "path": "Practitioner.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-status",
+          "path": "Practitioner.qualification.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-additional-authorizations",
+          "path": "Practitioner.qualification.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-scope-of-practice",
+          "path": "Practitioner.qualification.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-conditions-on-practice",
+          "path": "Practitioner.qualification.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-initialDate",
+          "path": "Practitioner.qualification.extension"
+        }
+      ]
     },
     {
       "name": "HpiPractitionerRole",
       "description": "The practitioner role exposed by the HPI.",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitionerRole",
       "baseProfile": "NzPractitionerRole",
-      "differential": {
-        "element": [
-          {
-            "id": "PractitionerRole.extension",
-            "path": "PractitionerRole.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "PractitionerRole.extension:practitionerRole-status",
-            "path": "PractitionerRole.extension",
-            "sliceName": "practitionerRole-status",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/practitionerRole-status"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "PractitionerRole.extension:practitionerRole-creator",
-            "path": "PractitionerRole.extension",
-            "sliceName": "practitionerRole-creator",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/practitionerRole-creator"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "PractitionerRole.active",
-            "path": "PractitionerRole.active",
-            "max": "0"
-          },
-          {
-            "id": "PractitionerRole.specialty",
-            "path": "PractitionerRole.specialty",
-            "max": "0"
-          },
-          {
-            "id": "PractitionerRole.healthcareService",
-            "path": "PractitionerRole.healthcareService",
-            "max": "0"
-          },
-          {
-            "id": "PractitionerRole.availableTime",
-            "path": "PractitionerRole.availableTime",
-            "max": "0"
-          },
-          {
-            "id": "PractitionerRole.notAvailable",
-            "path": "PractitionerRole.notAvailable",
-            "max": "0"
-          },
-          {
-            "id": "PractitionerRole.availabilityExceptions",
-            "path": "PractitionerRole.availabilityExceptions",
-            "max": "0"
-          }
-        ]
-      }
+      "extensions": [
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitionerRole-status",
+          "path": "PractitionerRole.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitionerRole-creator",
+          "path": "PractitionerRole.extension"
+        }
+      ]
     },
     {
       "name": "NhiPatient",
       "description": "The Patient resource exposed by the NHI.",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/NhiPatient",
       "baseProfile": "NzPatient",
-      "differential": {
-        "element": [
-          {
-            "id": "Patient.extension:patient-citizenship",
-            "path": "Patient.extension",
-            "sliceName": "patient-citizenship",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/patient-citizenship"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.extension:dhb",
-            "path": "Patient.extension",
-            "sliceName": "dhb",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/dhb"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.extension:patient-maoriDescent",
-            "path": "Patient.extension",
-            "sliceName": "patient-maoriDescent",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/patient-maoriDescent"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.identifier:dormant",
-            "path": "Patient.identifier",
-            "sliceName": "dormant",
-            "mustSupport": true
-          },
-          {
-            "id": "Patient.identifier:dormant.use",
-            "path": "Patient.identifier.use",
-            "fixedCode": "old"
-          },
-          {
-            "id": "Patient.identifier:dormant.system",
-            "path": "Patient.identifier.system",
-            "fixedUri": "https://standards.digital.health.nz/id/nhi"
-          },
-          {
-            "id": "Patient.active",
-            "path": "Patient.active",
-            "max": "0"
-          },
-          {
-            "id": "Patient.name.extension",
-            "path": "Patient.name.extension",
-            "min": 1
-          },
-          {
-            "id": "Patient.name.extension:informationsource",
-            "path": "Patient.name.extension",
-            "sliceName": "informationsource",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/informationsource"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.name.extension:iso21090-preferred",
-            "path": "Patient.name.extension",
-            "sliceName": "iso21090-preferred",
-            "min": 1,
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.gender.extension",
-            "path": "Patient.gender.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Patient.gender.extension:originalValue",
-            "path": "Patient.gender.extension",
-            "sliceName": "originalValue",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/originalValue"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.birthDate",
-            "path": "Patient.birthDate",
-            "min": 1
-          },
-          {
-            "id": "Patient.birthDate.extension",
-            "path": "Patient.birthDate.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Patient.birthDate.extension:informationsource",
-            "path": "Patient.birthDate.extension",
-            "sliceName": "informationsource",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/informationsource"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.deceasedDateTime",
-            "path": "Patient.deceasedDateTime",
-            "type": [
-              {
-                "code": "dateTime"
-              }
-            ]
-          },
-          {
-            "id": "Patient.deceasedDateTime.extension",
-            "path": "Patient.deceasedDateTime.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Patient.deceasedDateTime.extension:informationsource",
-            "path": "Patient.deceasedDateTime.extension",
-            "sliceName": "informationsource",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/informationsource"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.address",
-            "path": "Patient.address",
-            "min": 1
-          },
-          {
-            "id": "Patient.address.extension:buildingName",
-            "path": "Patient.address.extension",
-            "sliceName": "buildingName",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/buildingName"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.address.extension:nzGeocode",
-            "path": "Patient.address.extension",
-            "sliceName": "nzGeocode",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/nzGeocode"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.address.extension:patient-addressDerived",
-            "path": "Patient.address.extension",
-            "sliceName": "patient-addressDerived",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/patient-addressDerived"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.address.line",
-            "path": "Patient.address.line",
-            "min": 1
-          },
-          {
-            "id": "Patient.photo",
-            "path": "Patient.photo",
-            "max": "0"
-          },
-          {
-            "id": "Patient.contact",
-            "path": "Patient.contact",
-            "max": "0"
-          },
-          {
-            "id": "Patient.communication",
-            "path": "Patient.communication",
-            "max": "0"
-          },
-          {
-            "id": "Patient.generalPractitioner",
-            "path": "Patient.generalPractitioner",
-            "type": [
-              {
-                "code": "Reference",
-                "targetProfile": [
-                  "http://hl7.org/fhir/StructureDefinition/PractitionerRole"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.managingOrganization",
-            "path": "Patient.managingOrganization",
-            "max": "0"
-          },
-          {
-            "id": "Patient.link",
-            "path": "Patient.link",
-            "max": "0"
-          }
-        ]
-      }
+      "extensions": [
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/ethnicity",
+          "path": "Patient.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-birthPlace",
+          "path": "Patient.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-iwi",
+          "path": "Patient.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-citizenship",
+          "path": "Patient.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/dhb",
+          "path": "Patient.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-maoriDescent",
+          "path": "Patient.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/informationsource",
+          "path": "Patient.name.extension"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-preferred",
+          "path": "Patient.name.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/originalValue",
+          "path": "Patient.gender.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/informationsource",
+          "path": "Patient.birthDate.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/informationsource",
+          "path": "Patient.deceased[x].extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/buildingName",
+          "path": "Patient.address.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/nzGeocode",
+          "path": "Patient.address.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-addressDerived",
+          "path": "Patient.address.extension"
+        }
+      ]
     },
     {
       "name": "NzLocation",
       "description": "NZ base Location",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/NzLocation",
       "baseProfile": "Location",
-      "differential": {
-        "element": [
-          {
-            "id": "Location.identifier",
-            "path": "Location.identifier",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "use"
-                }
-              ],
-              "rules": "openAtEnd"
-            }
-          },
-          {
-            "id": "Location.identifier:facId",
-            "path": "Location.identifier",
-            "sliceName": "facId",
-            "max": "1",
-            "mustSupport": true
-          },
-          {
-            "id": "Location.identifier:facId.use",
-            "path": "Location.identifier.use",
-            "fixedCode": "official"
-          },
-          {
-            "id": "Location.identifier:facId.system",
-            "path": "Location.identifier.system",
-            "fixedUri": "https://standards.digital.health.nz/id/hpi-person"
-          }
-        ]
-      }
+      "extensions": []
     },
     {
       "name": "Location",
       "description": "Core profile for Location",
-      "baseProfile": "Resource"
+      "baseProfile": "Resource",
+      "url": "http://hl7.org/fhir/StructureDefinition/Location"
     },
     {
       "name": "NzOrganization",
       "description": "NZ Organizations",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/NzOrganization",
       "baseProfile": "Organization",
-      "differential": {
-        "element": [
-          {
-            "id": "Organization.identifier",
-            "path": "Organization.identifier",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "use"
-                }
-              ],
-              "rules": "openAtEnd"
-            }
-          },
-          {
-            "id": "Organization.identifier:orgId",
-            "path": "Organization.identifier",
-            "sliceName": "orgId",
-            "mustSupport": true
-          },
-          {
-            "id": "Organization.identifier:orgId.use",
-            "path": "Organization.identifier.use",
-            "fixedCode": "official"
-          },
-          {
-            "id": "Organization.identifier:orgId.system",
-            "path": "Organization.identifier.system",
-            "fixedUri": "https://standards.digital.health.nz/id/hpi-org"
-          }
-        ]
-      }
+      "extensions": []
     },
     {
       "name": "Organization",
       "description": "Core profile for Organization",
-      "baseProfile": "Resource"
+      "baseProfile": "Resource",
+      "url": "http://hl7.org/fhir/StructureDefinition/Organization"
     },
     {
       "name": "NzPatient",
       "description": "The base Patient resource in NZ",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/NzPatient",
       "baseProfile": "Patient",
-      "differential": {
-        "element": [
-          {
-            "id": "Patient.extension",
-            "path": "Patient.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Patient.extension:ethnicity",
-            "path": "Patient.extension",
-            "sliceName": "ethnicity",
-            "max": "4",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/ethnicity"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.extension:patient-birthPlace",
-            "path": "Patient.extension",
-            "sliceName": "patient-birthPlace",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/patient-birthPlace"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.extension:patient-iwi",
-            "path": "Patient.extension",
-            "sliceName": "patient-iwi",
-            "max": "1",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/patient-iwi"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Patient.identifier",
-            "path": "Patient.identifier",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "use"
-                }
-              ],
-              "rules": "openAtEnd"
-            }
-          },
-          {
-            "id": "Patient.identifier:NHI",
-            "path": "Patient.identifier",
-            "sliceName": "NHI",
-            "max": "1",
-            "mustSupport": true
-          },
-          {
-            "id": "Patient.identifier:NHI.use",
-            "path": "Patient.identifier.use",
-            "fixedCode": "official"
-          },
-          {
-            "id": "Patient.identifier:NHI.system",
-            "path": "Patient.identifier.system",
-            "fixedUri": "https://standards.digital.health.nz/id/nhi"
-          },
-          {
-            "id": "Patient.name",
-            "path": "Patient.name",
-            "min": 1,
-            "max": "1"
-          }
-        ]
-      }
+      "extensions": [
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/ethnicity",
+          "path": "Patient.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-birthPlace",
+          "path": "Patient.extension"
+        },
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-iwi",
+          "path": "Patient.extension"
+        }
+      ]
     },
     {
       "name": "Patient",
       "description": "Core profile for Patient",
-      "baseProfile": "Resource"
+      "baseProfile": "Resource",
+      "url": "http://hl7.org/fhir/StructureDefinition/Patient"
     },
     {
       "name": "NzPractitioner",
       "description": "The New Zeanand base practitioner. Sets common elements and extensions that all users should support.",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/NzPractitioner",
       "baseProfile": "Practitioner",
-      "differential": {
-        "element": [
-          {
-            "id": "Practitioner.extension",
-            "path": "Practitioner.extension",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "url"
-                }
-              ],
-              "ordered": false,
-              "rules": "open"
-            }
-          },
-          {
-            "id": "Practitioner.extension:nzethnicity",
-            "path": "Practitioner.extension",
-            "sliceName": "nzethnicity",
-            "max": "4",
-            "type": [
-              {
-                "code": "Extension",
-                "profile": [
-                  "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity"
-                ]
-              }
-            ]
-          },
-          {
-            "id": "Practitioner.identifier",
-            "path": "Practitioner.identifier",
-            "slicing": {
-              "discriminator": [
-                {
-                  "type": "value",
-                  "path": "use"
-                }
-              ],
-              "rules": "openAtEnd"
-            }
-          },
-          {
-            "id": "Practitioner.identifier:HPI",
-            "path": "Practitioner.identifier",
-            "sliceName": "HPI",
-            "max": "1",
-            "mustSupport": true
-          },
-          {
-            "id": "Practitioner.identifier:HPI.use",
-            "path": "Practitioner.identifier.use",
-            "fixedCode": "official"
-          },
-          {
-            "id": "Practitioner.identifier:HPI.system",
-            "path": "Practitioner.identifier.system",
-            "fixedUri": "https://standards.digital.health.nz/id/hpi-person"
-          },
-          {
-            "id": "Practitioner.name",
-            "path": "Practitioner.name",
-            "min": 1,
-            "mustSupport": true
-          },
-          {
-            "id": "Practitioner.name.family",
-            "path": "Practitioner.name.family",
-            "min": 1,
-            "mustSupport": true
-          }
-        ]
-      }
+      "extensions": [
+        {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity",
+          "path": "Practitioner.extension"
+        }
+      ]
     },
     {
       "name": "Practitioner",
       "description": "Core profile for Practitioner",
-      "baseProfile": "Resource"
+      "baseProfile": "Resource",
+      "url": "http://hl7.org/fhir/StructureDefinition/Practitioner"
     },
     {
       "name": "NzPractitionerRole",
       "description": "The practitioner role used in HPI.",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/NzPractitionerRole",
       "baseProfile": "PractitionerRole",
-      "differential": {
-        "element": [
-          {
-            "id": "PractitionerRole",
-            "path": "PractitionerRole"
-          }
-        ]
-      }
+      "extensions": []
     },
     {
       "name": "PractitionerRole",
       "description": "Core profile for PractitionerRole",
-      "baseProfile": "Resource"
+      "baseProfile": "Resource",
+      "url": "http://hl7.org/fhir/StructureDefinition/PractitionerRole"
+    }
+  ],
+  "extensions": [
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/address-isPrimary",
+      "description": "Indicates this is the primary residential address - each patient must have one and only one"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/buildingName",
+      "description": "No description"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/dhb",
+      "description": "The District Health Board the patient resides in. It is derived from the patient's primary residential address. Not updated directly."
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/ethnicity",
+      "description": "The ethnicity of the patient. One to six level 4 codes."
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/geolocation",
+      "description": "The geolocation of the address. datum = NZVD2016"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-dhb",
+      "description": "The District Health Board where this facility is located"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-established",
+      "description": "The period over which the location is open"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/informationsource",
+      "description": "The source of the information"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/location-aliasType",
+      "description": "Indicates the type of alias name"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/notValidatedReason",
+      "description": "The reason why the address has not been validated"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/nzGeocode",
+      "description": "A geocode that uses the NZ datum (rather than the one specified for .position) We are currently unable to convert to WGS84"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity",
+      "description": "Self-identified ethnicity of the person."
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/organization-aliasType",
+      "description": "eg abbreviated, maori..."
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/organization-period",
+      "description": "The period over which the Organization is active"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/originalValue",
+      "description": "when 'other'; was specified in a form this is what they said"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-addressDerived",
+      "description": "Additional address elements exposed by the NHI and calculated from the address"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-birthPlace",
+      "description": "The country where the person was born"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-citizenship",
+      "description": "New Zealand citizenship"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-iwi",
+      "description": "Details related to maori ancestry"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-maoriDescent",
+      "description": "Is the person of maori descent - yes, no, unknown, notanswered"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-additional-authorizations",
+      "description": "Additional authorizations that a practitioner is authorized to perform"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-conditions-on-practice",
+      "description": "A full description of the conditions the health practitioner is subject to in relation to their scope of practice."
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-deathdate",
+      "description": "The date the person died."
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-initialDate",
+      "description": "The date the practitioner first became registered with the Responsible Authority or professional body"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-status",
+      "description": "An indicator of the practicing status of the practitioner as supplied by their Responsible Authority or professional body."
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-scope-of-practice",
+      "description": "The type or range of health services a practitioner is authorized to perform, as determined by the Responsible Authority or professional body."
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/practitionerRole-creator",
+      "description": "The organisation and person that created this role"
+    },
+    {
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/practitionerRole-status",
+      "description": "The status of the role - active,ended"
     }
   ]
 }
