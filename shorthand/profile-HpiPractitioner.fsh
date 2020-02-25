@@ -36,8 +36,8 @@ Description:    "The practitioner exposed by the HPI."
 //many extensions on qualification
 * qualification.extension contains
     practitioner-qualification-status 0..1 and
-    practitioner-additional-authorizations 0..* and
-    practitioner-scope-of-practice 0..* and
-    practitioner-conditions-on-practice 0..* and
-    practitioner-qualification-initialDate 0..1
+    additional-authorization 0..* and
+    scope-of-practice 0..* and
+    condition-on-practice 0..* and
+    registration-initial-date 0..1
 

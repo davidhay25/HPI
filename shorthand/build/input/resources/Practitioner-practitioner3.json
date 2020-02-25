@@ -10,7 +10,7 @@
     {
       "extension": [
         {
-          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-status",
+          "url": "practitioner-qualification-status",
           "valueCodeableConcept": {
             "coding": [
               {
@@ -40,7 +40,7 @@
     {
       "extension": [
         {
-          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-scope-of-practice",
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/scope-of-practice",
           "extension": [
             {
               "url": "codeXXX",
@@ -48,7 +48,7 @@
                 "coding": [
                   {
                     "code": "NPRAC",
-                    "system": "https://standards.digital.health.nz/CodeSystem/practitioner-scopeofpractice",
+                    "system": "http://standards.digital.health.nz/CodeSystem/scope-of-practice",
                     "display": "Nurse Practitioner"
                   }
                 ]
@@ -63,7 +63,7 @@
           ]
         },
         {
-          "url": "http://hl7.org.nz/fhir/StructureDefinition/practitioner-additional-authorizations",
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/additional-authorization",
           "extension": [
             {
               "url": "codeXXX",

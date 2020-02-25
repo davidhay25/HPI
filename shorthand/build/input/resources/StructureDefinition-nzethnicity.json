@@ -1,11 +1,11 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "nzethnicity",
-  "url": "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity",
+  "id": "nzEthnicity",
+  "url": "http://hl7.org.nz/fhir/StructureDefinition/nzEthnicity",
   "version": "0.1.0",
-  "name": "Nzethnicity",
+  "name": "NzEthnicity",
   "status": "active",
-  "description": "Self-identified ethnicity of the person.",
+  "description": "The ethnicity of the patient. One to six level 4 codes.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -202,7 +202,7 @@
             ]
           }
         ],
-        "fixedUri": "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity",
+        "fixedUri": "http://hl7.org.nz/fhir/StructureDefinition/nzEthnicity",
         "isModifier": false,
         "isSummary": false,
         "mapping": [
@@ -290,7 +290,7 @@
         "isSummary": false,
         "binding": {
           "strength": "preferred",
-          "valueSet": "https://standards.digital.health.nz/valueset/ethnic-group-level-4"
+          "valueSet": "http://standards.digital.health.nz/valueset/ethnic-group-level-4"
         },
         "mapping": [
           {
@@ -311,7 +311,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "http://hl7.org.nz/fhir/StructureDefinition/nzethnicity"
+        "fixedUri": "http://hl7.org.nz/fhir/StructureDefinition/nzEthnicity"
       },
       {
         "id": "Extension.value[x]",
@@ -337,7 +337,7 @@
         "path": "Extension.valueCodeableConcept",
         "binding": {
           "strength": "preferred",
-          "valueSet": "https://standards.digital.health.nz/valueset/ethnic-group-level-4"
+          "valueSet": "http://standards.digital.health.nz/valueset/ethnic-group-level-4"
         }
       }
     ]

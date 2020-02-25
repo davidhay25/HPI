@@ -434,7 +434,7 @@
         "isSummary": false,
         "binding": {
           "strength": "preferred",
-          "valueSet": "https://standards.digital.health.nz/valueset/NzCitizenship"
+          "valueSet": "http://standards.digital.health.nz/valueset/nzCitizenship"
         },
         "mapping": [
           {
@@ -702,7 +702,7 @@
         "isSummary": false,
         "binding": {
           "strength": "preferred",
-          "valueSet": "http://hl7.org.nz/fhir/StructureDefinition/informationsource"
+          "valueSet": "http://standards.digital.health.nz/fhir/ValueSet/nzinfosource"
         },
         "mapping": [
           {
@@ -971,7 +971,7 @@
         "path": "Extension.extension.valueCodeableConcept",
         "binding": {
           "strength": "preferred",
-          "valueSet": "https://standards.digital.health.nz/valueset/NzCitizenship"
+          "valueSet": "http://standards.digital.health.nz/valueset/nzCitizenship"
         }
       },
       {
@@ -1010,7 +1010,7 @@
         "path": "Extension.extension.valueCodeableConcept",
         "binding": {
           "strength": "preferred",
-          "valueSet": "http://hl7.org.nz/fhir/StructureDefinition/informationsource"
+          "valueSet": "http://standards.digital.health.nz/fhir/ValueSet/nzinfosource"
         }
       },
       {

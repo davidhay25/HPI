@@ -32,13 +32,13 @@ That practicing registration has the requirement that they complete 120 hours su
 * qualification.period.start = "1993"
 
 //initial date
-* qualification.extension[practitioner-qualification-initialDate].valueDate = "2003-01-01"
+* qualification.extension[registration-initial-date].valueDate = "2003-01-01"
 
 //COP: supervised work
-* qualification.extension[practitioner-conditions-on-practice].extension[description].valueString = "complete 120 hours supervised work"
+* qualification.extension[condition-on-practice].extension[description].valueString = "complete 120 hours supervised work"
 
 //COP: ethics review (note the [1] to create a new extension instance)
-* qualification.extension[practitioner-conditions-on-practice][1].extension[description].valueString = "legal and ethics interview"
+* qualification.extension[condition-on-practice][1].extension[description].valueString = "legal and ethics interview"
 
 //The identifier in the qualification was issued by the pharmacy council
 * qualification.issuer.identifier.system = "https://standards.digital.health.nz/id/hpi-organisation"

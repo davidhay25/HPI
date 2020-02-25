@@ -1,3 +1,13 @@
+#!/usr/bin/env node
+
+/** Utilities related to IG's. Used by the other scripts
+ * 
+ *  updateIG - updates the loaded IG
+    loadIG Load an IG into memory
+    PUTFile - generic PUT operation
+ * 
+ */
+
 
 let fs = require('fs');
 let syncRequest = require('sync-request');

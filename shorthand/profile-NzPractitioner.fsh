@@ -3,7 +3,7 @@ Profile:        NzPractitioner
 Parent:         Practitioner
 Id:             NzPractitioner
 Title:          "NZ Practitioner"
-Description:    "The New Zeanand base practitioner. Sets common elements and extensions that all users should support."
+Description:    "The New Zealand base practitioner. Sets common elements and extensions that all users should support."
 
 * ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>NZ Base Practitioner profile</div>"
 * ^text.status = #additional
@@ -24,6 +24,6 @@ Description:    "The New Zeanand base practitioner. Sets common elements and ext
 * identifier contains 
     HPI 0..1 MS 
 
-* identifier[HPI].system = "https://standards.digital.health.nz/id/hpi-person"
+* identifier[HPI].system = "http://standards.digital.health.nz/id/hpi-person"
 * identifier[HPI].use = #official
 * identifier[HPI] ^short = "The currently active CPN (Common Person Name)"

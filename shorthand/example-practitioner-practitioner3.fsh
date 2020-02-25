@@ -64,15 +64,15 @@ the second the registration where they are registered as a nurse, andcan prescri
 
 
 //scope of practice as a Nurse Practitioner
-* qualification[1].extension[practitioner-scope-of-practice].extension[codeXXX].valueCodeableConcept.coding.code = #NPRAC
-* qualification[1].extension[practitioner-scope-of-practice].extension[codeXXX].valueCodeableConcept.coding.system = "https://standards.digital.health.nz/CodeSystem/practitioner-scopeofpractice"
-* qualification[1].extension[practitioner-scope-of-practice].extension[codeXXX].valueCodeableConcept.coding.display = "Nurse Practitioner"
-* qualification[1].extension[practitioner-scope-of-practice].extension[periodXXX].valuePeriod.start = "2018-11-26"
+* qualification[1].extension[scope-of-practice].extension[codeXXX].valueCodeableConcept.coding.code = #NPRAC
+* qualification[1].extension[scope-of-practice].extension[codeXXX].valueCodeableConcept.coding.system = "http://standards.digital.health.nz/CodeSystem/scope-of-practice"
+* qualification[1].extension[scope-of-practice].extension[codeXXX].valueCodeableConcept.coding.display = "Nurse Practitioner"
+* qualification[1].extension[scope-of-practice].extension[periodXXX].valuePeriod.start = "2018-11-26"
 
 //---------- additional authorization - ability to prescribe
-* qualification[1].extension[practitioner-additional-authorizations].extension[codeXXX].valueCodeableConcept.coding.system 
+* qualification[1].extension[additional-authorization].extension[codeXXX].valueCodeableConcept.coding.system 
    = "https://standards.digital.health.nz/CodeSystem/practitioner-additionalauth"
-  * qualification[1].extension[practitioner-additional-authorizations].extension[codeXXX].valueCodeableConcept.coding.code 
+  * qualification[1].extension[additional-authorization].extension[codeXXX].valueCodeableConcept.coding.code 
    = #rx
 
 

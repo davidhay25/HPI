@@ -58,7 +58,7 @@ A scope saying that registration is only under supervised training
 * qualification[3].code.coding.display = "Trainee clinical psychologist"
 
 //COP (Condition On Practice)
-* qualification[3].extension[practitioner-conditions-on-practice].extension[description].valueString = "registration is only under supervised training"
+* qualification[3].extension[condition-on-practice].extension[description].valueString = "registration is only under supervised training"
 
 //english speaker
 * communication.coding.system = "http://tools.ietf.org/html/bcp47"

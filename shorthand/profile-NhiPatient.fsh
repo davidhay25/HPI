@@ -1,34 +1,4 @@
-/*
-Profile:        NzPatient
-Parent:         Patient
-Id:             NzPatient
-Title:          "NZ Patient"
-Description:    "The base Patient resource in NZ"
 
-* ^purpose = "Describe the Patient resource exposed by the NHI"
-* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>NHI Patient profile</div>"
-* ^text.status = #additional
-
-//root level extensions
-* extension contains
-    ethnicity 0..4 and
-    patient-birthPlace 0..1 and
-    patient-iwi 0..1 
-
-* name 1..1
-
-//identifier - current 
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "use"
-* identifier ^slicing.rules = #openAtEnd
-
-* identifier contains 
-    NHI 0..1 MS 
-* identifier[NHI].system = "https://standards.digital.health.nz/id/nhi"
-* identifier[NHI].use = #official
-
-//================================================================================
-*/
 Profile:        NhiPatient
 Parent:         NzPatient
 Id:             NhiPatient

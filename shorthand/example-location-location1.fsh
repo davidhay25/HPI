@@ -23,15 +23,15 @@ InstanceOf: HpiLocation
 * alias = "East End Inc."
 
 //an extension on this alias that indicates that the alias type is 'trading as'
-* alias.extension[organization-aliasType].valueCodeableConcept.coding.system = "http://standards.digital.health.nz/fhir/ValueSet/aliasType"
-* alias.extension[organization-aliasType].valueCodeableConcept.coding.code = #ta
-* alias.extension[organization-aliasType].valueCodeableConcept.coding.display = "Trading As"
+* alias.extension[location-alias-type].valueCodeableConcept.coding.system = "http://standards.digital.health.nz/fhir/ValueSet/aliasType"
+* alias.extension[location-alias-type].valueCodeableConcept.coding.code = #ta
+* alias.extension[location-alias-type].valueCodeableConcept.coding.display = "Trading As"
 
 //otherwise known as 'dr dobbs surgery'
 * alias[1] = "Dr Dobbs Surgery"
-* alias[1].extension[organization-aliasType].valueCodeableConcept.coding.system = "http://standards.digital.health.nz/fhir/ValueSet/aliasType"
-* alias[1].extension[organization-aliasType].valueCodeableConcept.coding.code = #local
-* alias[1].extension[organization-aliasType].valueCodeableConcept.coding.display = "Locally known name"
+* alias[1].extension[location-alias-type].valueCodeableConcept.coding.system = "http://standards.digital.health.nz/fhir/ValueSet/aliasType"
+* alias[1].extension[location-alias-type].valueCodeableConcept.coding.code = #local
+* alias[1].extension[location-alias-type].valueCodeableConcept.coding.display = "Locally known name"
 
 //email address
 * telecom.system = #email

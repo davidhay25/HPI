@@ -57,4 +57,4 @@ Description:    "Locations used by the HPI."
 * identifier[dormant].use = #old
 
 * alias.extension contains 
-    organization-aliasType 0..1
+    location-alias-type 0..1

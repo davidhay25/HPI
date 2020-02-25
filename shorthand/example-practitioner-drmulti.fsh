@@ -45,21 +45,21 @@ InstanceOf: HpiPractitioner
 * qualification.issuer.identifier.value = "nzmc"
 
 //The initial date for this registration
-* qualification.extension[practitioner-qualification-initialDate].url = "http://hl7.org.nz/fhir/StructureDefinition/practitioner-qualification-initialDate"
-* qualification.extension[practitioner-qualification-initialDate].valueDate = "2018-11-26"
+* qualification.extension[registration-initial-date].url = "http://hl7.org.nz/fhir/StructureDefinition/registration-initial-date"
+* qualification.extension[registration-initial-date].valueDate = "2018-11-26"
 
 //This is an active qualification
 * qualification.extension[practitioner-qualification-status].valueCodeableConcept.coding.code = #active
 * qualification.extension[practitioner-qualification-status].valueCodeableConcept.coding.system = "https://standards.digital.health.nz/CodeSystem/practitioner-qualificationstatus"
 
 //there is a condition on practice
-* qualification.extension[practitioner-conditions-on-practice].extension[description].valueString = "Dr Example  is permitted to practise medicine in the position of House Officer in accredited clinical attachments at Southern District Health Board under the supervision of an approved prevocational educational supervisor between 01 March 2019 and 30 November 2019. The purpose of this registration is to require doctors to meet Council requirements for registration in the general scope of practice."
-* qualification.extension[practitioner-conditions-on-practice].extension[periodXXX].valuePeriod.start = "2018-11-26"
-* qualification.extension[practitioner-conditions-on-practice].extension[periodXXX].valuePeriod.end = "2019-03-01"
+* qualification.extension[condition-on-practice].extension[description].valueString = "Dr Example  is permitted to practise medicine in the position of House Officer in accredited clinical attachments at Southern District Health Board under the supervision of an approved prevocational educational supervisor between 01 March 2019 and 30 November 2019. The purpose of this registration is to require doctors to meet Council requirements for registration in the general scope of practice."
+* qualification.extension[condition-on-practice].extension[periodXXX].valuePeriod.start = "2018-11-26"
+* qualification.extension[condition-on-practice].extension[periodXXX].valuePeriod.end = "2019-03-01"
 
 //Scope of practice is MCPG
-* qualification.extension[practitioner-scope-of-practice].extension[codeXXX].valueCodeableConcept.coding[0].code = #MCPG
-* qualification.extension[practitioner-scope-of-practice].extension[codeXXX].valueCodeableConcept.coding[0].system = "https://standards.digital.health.nz/CodeSystem/practitioner-scopeofpractice"
-* qualification.extension[practitioner-scope-of-practice].extension[periodXXX].valuePeriod.start = "2018-11-26"
+* qualification.extension[scope-of-practice].extension[codeXXX].valueCodeableConcept.coding[0].code = #MCPG
+* qualification.extension[scope-of-practice].extension[codeXXX].valueCodeableConcept.coding[0].system = "https://standards.digital.health.nz/CodeSystem/practitioner-scopeofpractice"
+* qualification.extension[scope-of-practice].extension[periodXXX].valuePeriod.start = "2018-11-26"
 
 

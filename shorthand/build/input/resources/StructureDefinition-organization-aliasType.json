@@ -290,7 +290,7 @@
         "isSummary": false,
         "binding": {
           "strength": "preferred",
-          "valueSet": "http://standards.digital.health.nz/fhir/ValueSet/aliasType"
+          "valueSet": "http://standards.digital.health.nz/fhir/ValueSet/organization-alias-type"
         },
         "mapping": [
           {
@@ -337,7 +337,7 @@
         "path": "Extension.valueCodeableConcept",
         "binding": {
           "strength": "preferred",
-          "valueSet": "http://standards.digital.health.nz/fhir/ValueSet/aliasType"
+          "valueSet": "http://standards.digital.health.nz/fhir/ValueSet/organization-alias-type"
         }
       }
     ]

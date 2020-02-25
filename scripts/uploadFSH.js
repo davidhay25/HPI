@@ -1,28 +1,32 @@
 #!/usr/bin/env node
 
 /**
- * Upload the fsh files for profiles and extensions
+ * Upload the fsh files for profiles, extensions and examples.
+ * FSH files are uploaded to [host]/Binary/{type}-{id} where {type} is profile / extension / example
+ * For profiles and extensions, the SD is also uploaded
+ * 
+ * Should be run after any of the FSH files are changed and sushi executed
+ * (makeExtensionFSH should be executed after changing any of the Logical Models, and before this script )
  */
 
-let IG = require("./IGUtils")
-IG.loadIG('nzRegistry.json')
+let serverRoot = "http://home.clinfhir.com:8054/baseR4/";   //the server to upload FSH & SD
 
-console.log('Uploading FSH files to [host]/Example')
+let IG = require("./IGUtils")
+IG.loadIG('nzRegistry.json');   //load the indicated IG. Not really needed actually....
+
+console.log('Uploading FSH abd SD files to ' + serverRoot)
 let fs = require('fs');
 
-let serverRoot = "http://home.clinfhir.com:8054/baseR4/"
-
-let path = '../shorthand/';
+let path = '../shorthand/'; //where the FSH files are found. SD's are in the subfolder build/input/resources/
 
 fs.readdirSync(path).forEach(function(file) {
     let ar = file.split('-')
     if (ar.length > 1) {
 
         if (ar[0] == 'profile' || ar[0] == 'extension' || ar[0] == 'example') {       //this is a profile or an extension...
-            //assume the filename format is profile-{id}.fsh with id being the id of the logical model.
+            //assume the filename format is {type}-{id}.fsh with id being the id of the logical model.
             //the profile id on the server will then be the same as this filename... (incl. case)
-            //get the id
-
+          
             //the name is everything after the first '-'
             let type = ar[0];       // profile, extension or example
             ar.splice(0,1);
@@ -30,7 +34,7 @@ fs.readdirSync(path).forEach(function(file) {
 
             //remove the extension to get the id
             let ar1 = name.split('.')
-            let id =  ar1[0];      
+            let id =  ar1[0];        //get the id
         
             let url = serverRoot + "Binary/" + type + "-" + id;  //address of the fsh Binary on the server
             
@@ -44,11 +48,8 @@ fs.readdirSync(path).forEach(function(file) {
             resource.data  = buff.toString('base64');
             IG.PUTFile(url,resource)
 
-
-            //see if there is a generated SD and upload that as well. 
+            //For profiles and extensions, see if there is a generated SD and upload that as well. 
             //Note that the IG needs to have an extension in the entry for the logical model that references this...
-
-            //??? use uploadResources.js for this...
 
             if (type == 'profile' || type == 'extension') {
                 let SDFileName = path + "build/input/resources/StructureDefinition-"+ id + ".json";
@@ -58,55 +59,20 @@ fs.readdirSync(path).forEach(function(file) {
     
                     let sdId = id+"-" + type;
                     resource.id = sdId;  
-                    let sdUrl = serverRoot + "StructureDefinition/"+sdId
+                    let sdUrl = serverRoot + "StructureDefinition/"+sdId;   //the url on the server, not the canonical url
                 
-                    delete resource.version             //temp - need to update server
+                    delete resource.version             //temp - need to update my server as it doesn't accept the most current 
                     resource.fhirVersion = "4.0.0"
-                    IG.PUTFile(sdUrl,resource)
+                    IG.PUTFile(sdUrl,resource)          //save the SD to the server
                 } catch (ex) {
                     console.log('No StructureDefinition found - ' + SDFileName + " " + ex)
                 }
             } else if (type == 'example') {
-                //need to figure out the name of the generated resource
-                //todo - this is actually not simple...
-                 
+                //The example rersource instances are not uploaded. Use uploadResources.js for that...
             }
-           
-            
-
-
-
         }
 }
 
 })
 
 
-
-
-//PUT a file to the server, given url and contents
-function PUTFileDEP(url,resource) {
-
-    console.log(url);
-    var options = {};
-    options.headers = {"content-type": "application/json+fhir"}
-    options.timeout = 20000;        //20 seconds
-    options.body = JSON.stringify(resource);
-
-    var response = syncRequest('PUT', url, options);
-    console.log(response.statusCode)
-    if (response.statusCode !== 200 && response.statusCode !== 201) {
-        console.log('  error' + response.body.toString())
-        return false
-    } else {
-        if (response.statusCode == 200) {
-            console.log('Updated ' + url)
-        } 
-        
-        if (response.statusCode == 201) {
-            console.log('Created ' + url)
-        }
-       
-        return true
-    }
-}
