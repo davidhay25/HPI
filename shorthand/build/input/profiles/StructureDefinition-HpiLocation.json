@@ -11,7 +11,7 @@
   "title": "HPI Location",
   "status": "active",
   "description": "Locations used by the HPI.",
-  "purpose": "Describe the Location that will be returned by the HPI",
+  "purpose": "Describe the Location resource that will be returned by the HPI",
   "fhirVersion": "4.0.1",
   "mapping": [
     {

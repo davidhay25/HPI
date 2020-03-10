@@ -13,7 +13,7 @@ Description:    "Locations used by the HPI."
 * ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>HPI Location profile</div>"
 * ^text.status = #additional
 
-* ^purpose = "Describe the Location that will be returned by the HPI"
+* ^purpose = "Describe the Location resource that will be returned by the HPI"
 
 //elements that have been removed
 * operationalStatus 0..0
