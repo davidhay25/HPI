@@ -1,0 +1,11 @@
+{
+    "name":"HPI",
+    "confServer":"http://home.clinfhir.com:8054/baseR4/",
+    "models" : [
+        {"id":"HpiPractitioner","title":"Practitioner resource"},
+        {"id":"HpiPractitionerRole","title":"PractitionerRole resource"},
+        {"id":"HpiOrganization","title":"Organization resource"},
+        {"id":"HpiLocation","title":"Location resource"},
+        {"id":"HpiEndpoint","title":"Endpoint resource"}
+    ]
+}

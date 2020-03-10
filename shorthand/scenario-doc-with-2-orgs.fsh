@@ -14,10 +14,12 @@ Instance:   scen1-prac1
 InstanceOf: HpiPractitioner
 * name[0].text = "Dr John Kildaire"
 * name.family = "Kildaire"
+* gender = #male
 
 Instance:   scen1-pr1
 InstanceOf: HpiPractitionerRole
 * text.div = "<div>Dr Kildaire as doctor</div>"
+* text.status = #additional
 
 * identifier[0].value = "sr"
 * identifier[0].system = "http://clinfhir.com/example"
@@ -31,7 +33,7 @@ InstanceOf: HpiPractitionerRole
 Instance:   scen1-pr2
 InstanceOf: HpiPractitionerRole
 * text.div = "<div>Dr Kildaire as pharmacist</div>"
-
+* text.status = #additional
 
 * organization = Reference(ghc)
 * practitioner = Reference(scen1-prac1)

@@ -2,11 +2,12 @@
  "name": "hl7.org.nz.hpi",
  "version" : "0.1.0",  
  "canonical" : "http://hl7.org.nz/fhir",
- "url" : "http://hl7.org.nz/fhir/StructureDefinition/HPIPractitioner",
+ "url" : "http://hl7.org.nz/fhir",
  "title" : "New Zealand HPI IG",
  "description": "The HPI facade",
  "dependencies": {
-    "hl7.fhir.r4.core": "4.0.1"
+    "hl7.fhir.r4.core": "4.0.1",
+    "hl7.org.nz.base":"dev"
  },
 
  "language": "en",

@@ -1,9 +1,16 @@
+//Aliases for extensions
+Alias: $practitionerRole-status = http://hl7.org.nz/fhir/StructureDefinition/practitionerRole-status
+Alias: $practitionerRole-creator = http://hl7.org.nz/fhir/StructureDefinition/practitionerRole-creator
 
 Profile:        HpiPractitionerRole
 Parent:         NzPractitionerRole
 Id:             HpiPractitionerRole
 Title:          "HPI Practitioner role"
 Description:    "The practitioner role exposed by the HPI."
+
+
+
+
 
 * ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>HPI PractitionerRole profile</div>"
 * ^text.status = #additional
@@ -12,8 +19,8 @@ Description:    "The practitioner role exposed by the HPI."
 
 //top level  extensions
 * extension contains 
-    practitionerRole-status 0..1 and 
-    practitionerRole-creator 0..1
+    $practitionerRole-status named practitionerRole-status 0..1 and 
+    $practitionerRole-creator named practitionerRole-creator 0..1
     
 //elements that have been removed
 * active 0..0

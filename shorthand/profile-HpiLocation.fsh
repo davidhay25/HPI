@@ -1,25 +1,8 @@
-/*
-Profile:        NzLocation
-Parent:         Location
-Id:             NzLocation
-Title:          "NZ Location"
-Description:    "NZ base Location"
 
-* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>NZ Location profile</div>"
-* ^text.status = #additional
-
-//slice the identifier
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "use"
-* identifier ^slicing.rules = #openAtEnd
-
-* identifier contains 
-    facId 0..1 MS 
-* identifier[facId].system = "https://standards.digital.health.nz/id/hpi-person"
-* identifier[facId].use = #official
-*/
-
-//================================================================================
+// Aliases for extensions
+Alias: $location-alias-type = http://hl7.org.nz/fhir/StructureDefinition/location-alias-type
+Alias: $hpiLocation-dhb = http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-dhb
+Alias: $hpiLocation-established = http://hl7.org.nz/fhir/StructureDefinition/hpiLocation-established
 
 Profile:        HpiLocation
 Parent:         NzLocation
@@ -41,8 +24,8 @@ Description:    "Locations used by the HPI."
 
 //top level  extensions
 * extension contains 
-    hpiLocation-established 0..1 and
-    hpiLocation-dhb 0..1 
+    $hpiLocation-established 0..1 and
+    $hpiLocation-dhb 0..1 
 
 //slice the identifier
 * identifier ^slicing.discriminator.type = #value
@@ -57,4 +40,4 @@ Description:    "Locations used by the HPI."
 * identifier[dormant].use = #old
 
 * alias.extension contains 
-    location-alias-type 0..1
+    $location-alias-type named location-alias-type 0..1

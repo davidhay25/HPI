@@ -1,0 +1,411 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "hl7.org.nz.hpi",
+  "url": "http://hl7.org.nz/fhir/ImplementationGuide/hl7.org.nz.hpi",
+  "version": "0.1.0",
+  "name": "NewZealandHPIIG",
+  "title": "New Zealand HPI IG",
+  "status": "active",
+  "publisher": "David Hay",
+  "contact": [
+    {
+      "name": "David Hay",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "david.hay25@gmail.com"
+        }
+      ]
+    }
+  ],
+  "description": "The HPI facade",
+  "packageId": "hl7.org.nz.hpi",
+  "license": "CC0-1.0",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "uri": "http://hl7.org.nz/fhir/ImplementationGuide/hl7.org.nz.base",
+      "packageId": "hl7.org.nz.base",
+      "version": "dev"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/HpiEndpoint"
+        },
+        "name": "HPI Endpoint",
+        "description": "Endpoints used by the HPI.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/HpiLocation"
+        },
+        "name": "HPI Location",
+        "description": "Locations used by the HPI.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/HpiOrganization"
+        },
+        "name": "HPI Organization",
+        "description": "Organizations used by the HPI.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/HpiPractitioner"
+        },
+        "name": "HPI Practitioner",
+        "description": "The practitioner exposed by the HPI.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/HpiPractitionerRole"
+        },
+        "name": "HPI Practitioner role",
+        "description": "The practitioner role exposed by the HPI.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/additional-authorization"
+        },
+        "name": "Additional_authorization",
+        "description": "Additional authorizations that a practitioner is authorized to perform",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/address-isPrimary"
+        },
+        "name": "Address_isPrimary",
+        "description": "Indicates this is the primary residential address - each patient must have one and only one",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/buildingName"
+        },
+        "name": "BuildingName",
+        "description": "No description",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/condition-on-practice"
+        },
+        "name": "Condition_on_practice",
+        "description": "A full description of the conditions the health practitioner is subject to in relation to their scope of practice.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/death-date"
+        },
+        "name": "Death_date",
+        "description": "The date the person died.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/dhb"
+        },
+        "name": "Dhb",
+        "description": "The District Health Board the patient resides in. It is derived from the patient's primary residential address. Not updated directly.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/geolocation"
+        },
+        "name": "Geolocation",
+        "description": "The geolocation of the address. datum = NZVD2016",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/informationsource"
+        },
+        "name": "Informationsource",
+        "description": "The source of the information",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/location-alias-type"
+        },
+        "name": "Location_alias_type",
+        "description": "Indicates the type of alias name",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/location-dhb"
+        },
+        "name": "Location_dhb",
+        "description": "The District Health Board where this facility is located",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/location-established"
+        },
+        "name": "Location_established",
+        "description": "The period over which the location is open",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/notValidatedReason"
+        },
+        "name": "NotValidatedReason",
+        "description": "The reason why the address has not been validated",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/nzEthnicity"
+        },
+        "name": "NzEthnicity",
+        "description": "The ethnicity of the patient. One to six level 4 codes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/nzGeocode"
+        },
+        "name": "NzGeocode",
+        "description": "The new zealand geocode. This uses a different datum from that defined in the spec for the geocode, so is an extension rather than using the element in the spec. see discussion at https://chat.fhir.org/#narrow/stream/179166-implementers/topic/geocode.20extension",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/organization-aliasType"
+        },
+        "name": "Organization_aliasType",
+        "description": "eg abbreviated, maori...",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/organization-period"
+        },
+        "name": "Organization_period",
+        "description": "The period over which the Organization is active",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/originalValue"
+        },
+        "name": "OriginalValue",
+        "description": "when 'other'; was specified in a form this is what they said",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/patient-addressDerived"
+        },
+        "name": "Patient_addressDerived",
+        "description": "Additional address elements exposed by the NHI and calculated from the address",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/patient-birthPlace"
+        },
+        "name": "Patient_birthPlace",
+        "description": "The country where the person was born",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/patient-citizenship"
+        },
+        "name": "Patient_citizenship",
+        "description": "New Zealand citizenship",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/patient-iwi"
+        },
+        "name": "Patient_iwi",
+        "description": "Details related to maori ancestry",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/patient-maoriDescent"
+        },
+        "name": "Patient_maoriDescent",
+        "description": "Is the person of maori descent - yes, no, unknown, notanswered",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/practitionerRole-creator"
+        },
+        "name": "PractitionerRole_creator",
+        "description": "The organisation and person that created this role",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/practitionerRole-status"
+        },
+        "name": "PractitionerRole_status",
+        "description": "The status of the role - active,ended",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registration-initial-date"
+        },
+        "name": "Registration_initial_date",
+        "description": "The date the practitioner first became registered with the Responsible Authority or professional body",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registration-status"
+        },
+        "name": "Registration_status",
+        "description": "An indicator of the practicing status of the practitioner as supplied by their Responsible Authority or professional body.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/scope-of-practice"
+        },
+        "name": "Scope_of_practice",
+        "description": "The type or range of health services a practitioner is authorized to perform, as determined by the Responsible Authority or professional body.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/drmulti"
+        },
+        "name": "drmulti",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitioner"
+      },
+      {
+        "reference": {
+          "reference": "Organization/ghc"
+        },
+        "name": "ghc",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiOrganization"
+      },
+      {
+        "reference": {
+          "reference": "Location/location1"
+        },
+        "name": "location1",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiLocation"
+      },
+      {
+        "reference": {
+          "reference": "Organization/organization1"
+        },
+        "name": "organization1",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiOrganization"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/practitioner3"
+        },
+        "name": "practitioner3",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitioner"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/practitionerX"
+        },
+        "name": "practitionerX",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitioner"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/practitionerY"
+        },
+        "name": "practitionerY",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitioner"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/practitionerrole1"
+        },
+        "name": "practitionerrole1",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitionerRole"
+      },
+      {
+        "reference": {
+          "reference": "Organization/scen1-ghc"
+        },
+        "name": "scen1-ghc",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiOrganization"
+      },
+      {
+        "reference": {
+          "reference": "Organization/scen1-pharm1"
+        },
+        "name": "scen1-pharm1",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiOrganization"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/scen1-pr1"
+        },
+        "name": "scen1-pr1",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitionerRole"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/scen1-pr2"
+        },
+        "name": "scen1-pr2",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitionerRole"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/scen1-prac1"
+        },
+        "name": "scen1-prac1",
+        "exampleCanonical": "http://hl7.org.nz/fhir/StructureDefinition/HpiPractitioner"
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Home",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2020+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "CI Build"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      }
+    ]
+  }
+}

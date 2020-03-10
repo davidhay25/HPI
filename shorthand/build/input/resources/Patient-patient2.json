@@ -47,7 +47,7 @@
   },
   "extension": [
     {
-      "url": "ethnicity",
+      "url": "http://hl7.org.nz/fhir/base/StructureDefinition/nzEthnicity",
       "valueCodeableConcept": {
         "coding": [
           {
@@ -65,7 +65,7 @@
       }
     },
     {
-      "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-birthPlace",
+      "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-birthPlaceXXX",
       "extension": [
         {
           "url": "placeOfBirth",
@@ -109,7 +109,7 @@
       }
     },
     {
-      "url": "http://hl7.org.nz/fhir/StructureDefinition/patient-iwi",
+      "url": "http://hl7.org.nz/fhir/base/StructureDefinition/patient-iwi",
       "valueCodeableConcept": {
         "coding": [
           {

@@ -1,0 +1,128 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "HpiLocation",
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">HPI Location profile</div>",
+    "status": "additional"
+  },
+  "url": "http://hl7.org.nz/fhir/StructureDefinition/HpiLocation",
+  "version": "0.1.0",
+  "name": "HpiLocation",
+  "title": "HPI Location",
+  "status": "active",
+  "description": "Locations used by the HPI.",
+  "purpose": "Describe the Location that will be returned by the HPI",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Location",
+  "baseDefinition": "http://hl7.org.nz/fhir/StructureDefinition/NzLocation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Location.extension:$hpiLocation-established",
+        "path": "Location.extension",
+        "sliceName": "$hpiLocation-established",
+        "max": "1"
+      },
+      {
+        "id": "Location.extension:$hpiLocation-established.url",
+        "path": "Location.extension.url",
+        "fixedUri": "$hpiLocation-established"
+      },
+      {
+        "id": "Location.extension:$hpiLocation-dhb",
+        "path": "Location.extension",
+        "sliceName": "$hpiLocation-dhb",
+        "max": "1"
+      },
+      {
+        "id": "Location.extension:$hpiLocation-dhb.url",
+        "path": "Location.extension.url",
+        "fixedUri": "$hpiLocation-dhb"
+      },
+      {
+        "id": "Location.identifier:dormant",
+        "path": "Location.identifier",
+        "sliceName": "dormant",
+        "mustSupport": true
+      },
+      {
+        "id": "Location.identifier:dormant.use",
+        "path": "Location.identifier.use",
+        "fixedCode": "old"
+      },
+      {
+        "id": "Location.identifier:dormant.system",
+        "path": "Location.identifier.system",
+        "fixedUri": "https://standards.digital.health.nz/id/hpi-person"
+      },
+      {
+        "id": "Location.operationalStatus",
+        "path": "Location.operationalStatus",
+        "max": "0"
+      },
+      {
+        "id": "Location.alias.extension",
+        "path": "Location.alias.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Location.alias.extension:location-alias-type",
+        "path": "Location.alias.extension",
+        "sliceName": "location-alias-type",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org.nz/fhir/StructureDefinition/location-alias-type"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Location.mode",
+        "path": "Location.mode",
+        "max": "0"
+      },
+      {
+        "id": "Location.physicalType",
+        "path": "Location.physicalType",
+        "max": "0"
+      },
+      {
+        "id": "Location.hoursOfOperation",
+        "path": "Location.hoursOfOperation",
+        "max": "0"
+      },
+      {
+        "id": "Location.availabilityExceptions",
+        "path": "Location.availabilityExceptions",
+        "max": "0"
+      }
+    ]
+  }
+}

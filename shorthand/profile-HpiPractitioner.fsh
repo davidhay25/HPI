@@ -1,4 +1,12 @@
 
+//Aliases for extensions
+Alias: $death-date = http://hl7.org.nz/fhir/StructureDefinition/death-date
+Alias: $registration-status = http://hl7.org.nz/fhir/StructureDefinition/registration-status
+Alias: $additional-authorization = http://hl7.org.nz/fhir/StructureDefinition/additional-authorization
+Alias: $scope-of-practice = http://hl7.org.nz/fhir/StructureDefinition/scope-of-practice
+Alias: $condition-on-practice = http://hl7.org.nz/fhir/StructureDefinition/condition-on-practice
+Alias: $registration-initial-date = http://hl7.org.nz/fhir/StructureDefinition/registration-initial-date
+
 Profile:        HpiPractitioner
 Parent:         NzPractitioner
 Id:             HpiPractitioner
@@ -10,6 +18,9 @@ Description:    "The practitioner exposed by the HPI."
 
 * ^purpose = "Describe the Practitioner that will be returned by the HPI"
 
+
+
+
 //elements that have been removed
 * active 0..0
 * telecom 0..0
@@ -18,7 +29,7 @@ Description:    "The practitioner exposed by the HPI."
 
 //top level  extensions
 * extension contains 
-    practitioner-deathdate 0..1 
+    $death-date named death-date 0..1 
 
 //slice identifier to add none or more dormant NHI as Must Support
 * identifier ^slicing.discriminator.type = #value
@@ -35,9 +46,9 @@ Description:    "The practitioner exposed by the HPI."
 
 //many extensions on qualification
 * qualification.extension contains
-    practitioner-qualification-status 0..1 and
-    additional-authorization 0..* and
-    scope-of-practice 0..* and
-    condition-on-practice 0..* and
-    registration-initial-date 0..1
+    $registration-status named registration-status 0..1 and
+    $additional-authorization named additional-authorization 0..* and
+    $scope-of-practice named scope-of-practice 0..* and
+    $condition-on-practice named condition-on-practice 0..* and
+    $registration-initial-date named registration-initial-date 0..1
 

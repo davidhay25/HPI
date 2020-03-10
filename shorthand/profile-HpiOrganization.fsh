@@ -1,10 +1,15 @@
 
+//Aliases for extensions
+Alias: $organization-period = http://hl7.org.nz/fhir/StructureDefinition/organization-period
+Alias: $organization-aliasType = http://hl7.org.nz/fhir/StructureDefinition/organization-aliasType
 
 Profile:        HpiOrganization
 Parent:         NzOrganization
 Id:             HpiOrganization
 Title:          "HPI Organization"
 Description:    "Organizations used by the HPI."
+
+
 
 * ^purpose = "Describe the Organization that will be returned by the HPI"
 * ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>HPI Organization  profile</div>"
@@ -16,7 +21,7 @@ Description:    "Organizations used by the HPI."
 
 //top level  extensions
 * extension contains 
-    organization-period 0..1  
+    $organization-period named organization-period 0..1  
     
 
 //slice the identifier
@@ -32,4 +37,4 @@ Description:    "Organizations used by the HPI."
 
 //add an extension to alias
 * alias.extension contains
-    organization-aliasType 0..1
+    $organization-aliasType named organization-aliasType 0..1
